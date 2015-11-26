@@ -110,6 +110,10 @@ macro index,pager gr "!goobook reload\n" "Goobook reload"
 
 bind index,pager  previous-line
 
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+
+
 # Sync email
 macro index O "<shell-escape>mbsync -Va<enter>" "run offlineimap to sync all mail"
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
