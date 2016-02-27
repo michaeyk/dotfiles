@@ -59,62 +59,62 @@ Channel gmail-flagged
 Channel gmail-archive
 
 # calloptima
-IMAPAccount calloptima
-Host imap.gmail.com
-User mike@calloptima.com
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.passwd/calloptima.gpg"
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+# IMAPAccount calloptima
+# Host imap.gmail.com
+# User mike@calloptima.com
+# PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.passwd/calloptima.gpg"
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-IMAPStore calloptima-remote
-Account calloptima
+# IMAPStore calloptima-remote
+# Account calloptima
 
-MaildirStore calloptima-local
-# The trailing "/" is important
-Path ~/.mail/calloptima/
-Inbox ~/.mail/calloptima/Inbox
+# MaildirStore calloptima-local
+# # The trailing "/" is important
+# Path ~/.mail/calloptima/
+# Inbox ~/.mail/calloptima/Inbox
 
-Channel calloptima-inbox
-Master ":calloptima-remote:INBOX"
-Slave ":calloptima-local:INBOX"
-Create Both
-SyncState *
+# Channel calloptima-inbox
+# Master ":calloptima-remote:INBOX"
+# Slave ":calloptima-local:INBOX"
+# Create Both
+# SyncState *
 
-Channel calloptima-archive
-Master ":calloptima-remote:[Gmail]/All Mail"
-Slave ":calloptima-local:archive"
-Create Both
-SyncState *
+# Channel calloptima-archive
+# Master ":calloptima-remote:[Gmail]/All Mail"
+# Slave ":calloptima-local:archive"
+# Create Both
+# SyncState *
 
-Channel calloptima-drafts
-Master ":calloptima-remote:[Gmail]/Drafts"
-Slave ":calloptima-local:drafts"
-Create Both
-SyncState *
+# Channel calloptima-drafts
+# Master ":calloptima-remote:[Gmail]/Drafts"
+# Slave ":calloptima-local:drafts"
+# Create Both
+# SyncState *
 
-Channel calloptima-sent
-Master ":calloptima-remote:[Gmail]/Sent Mail"
-Slave ":calloptima-local:sent"
-Create Both
-SyncState *
+# Channel calloptima-sent
+# Master ":calloptima-remote:[Gmail]/Sent Mail"
+# Slave ":calloptima-local:sent"
+# Create Both
+# SyncState *
 
-Channel calloptima-flagged
-Master ":calloptima-remote:[Gmail]/Starred"
-Slave ":calloptima-local:flagged"
-Create Both
-SyncState *
+# Channel calloptima-flagged
+# Master ":calloptima-remote:[Gmail]/Starred"
+# Slave ":calloptima-local:flagged"
+# Create Both
+# SyncState *
 
-Channel calloptima-trash
-Master ":calloptima-remote:[Gmail]/Trash"
-Slave ":calloptima-local:trash"
-Create Both
-SyncState *
+# Channel calloptima-trash
+# Master ":calloptima-remote:[Gmail]/Trash"
+# Slave ":calloptima-local:trash"
+# Create Both
+# SyncState *
 
-Group calloptima
-Channel calloptima-trash
-Channel calloptima-inbox
-Channel calloptima-drafts
-Channel calloptima-sent
-Channel calloptima-flagged
-Channel calloptima-archive
+# Group calloptima
+# Channel calloptima-trash
+# Channel calloptima-inbox
+# Channel calloptima-drafts
+# Channel calloptima-sent
+# Channel calloptima-flagged
+# Channel calloptima-archive
 

@@ -17,11 +17,11 @@ macro index gs "<change-folder>=gmail/sent<enter>" "Go to Sent Mail"
 macro index gd "<change-folder>=gmail/drafts<enter>" "Go to drafts"
 macro index gt "<change-folder>=gmail/trash<enter>" "Go to trash"
 
-macro index ci "<change-folder>=calloptima/Inbox<enter>" "Go to inbox"
-macro index ca "<change-folder>=calloptima/archive<enter>" "Go to all mail"
-macro index cs "<change-folder>=calloptima/sent<enter>" "Go to Sent Mail"
-macro index cd "<change-folder>=calloptima/drafts<enter>" "Go to drafts"
-macro index ct "<change-folder>=calloptima/trash<enter>" "Go to trash"
+# macro index ci "<change-folder>=calloptima/Inbox<enter>" "Go to inbox"
+# macro index ca "<change-folder>=calloptima/archive<enter>" "Go to all mail"
+# macro index cs "<change-folder>=calloptima/sent<enter>" "Go to Sent Mail"
+# macro index cd "<change-folder>=calloptima/drafts<enter>" "Go to drafts"
+# macro index ct "<change-folder>=calloptima/trash<enter>" "Go to trash"
 
 ### BEGIN NOTMUCH-MUTT SETTINGS
 macro index <F8> \
@@ -110,6 +110,10 @@ macro index,pager gr "!goobook reload\n" "Goobook reload"
 
 bind index,pager  previous-line
 
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+
+
 # Sync email
 macro index O "<shell-escape>mbsync -Va<enter>" "run offlineimap to sync all mail"
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
@@ -119,7 +123,7 @@ source "~/.mutt/accounts/gmail"
 folder-hook $folder 'source ~/.mutt/accounts/gmail'
 
 folder-hook gmail/* 'source ~/.mutt/accounts/gmail'
-folder-hook calloptima/* 'source ~/.mutt/accounts/calloptima'
+# folder-hook calloptima/* 'source ~/.mutt/accounts/calloptima'
 
  
 

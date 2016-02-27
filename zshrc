@@ -58,5 +58,5 @@ export PATH="/home/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sb
 
 eval `keychain --eval --agents ssh id_rsa`
 
-export PATH="$HOME/bin:$HOME/.rvm/bin:$HOME/.npm/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$HOME/.npm/bin:$PATH"
 eval `dircolors ~/.dircolors`
