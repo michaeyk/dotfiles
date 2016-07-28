@@ -54,7 +54,7 @@ export BROWSER=firefox
 export GPGKEY=6271B2D8
 export PATH="/home/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
-/home/mike/android-sdk-linux/tools:$PATH"
+/home/mike/android-sdk-linux/platform-tools:$PATH"
 
 eval `keychain --eval --agents ssh id_rsa`
 
