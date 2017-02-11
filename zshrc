@@ -38,9 +38,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi=/usr/bin/vim
 alias more=less
-alias xubi='ssh xubi -t tmux attach -d'
-alias irc='urxvtc -name irc -e ssh xubi -t tmux attach -d'
-alias dev='urxvtc -name dev' 
 alias ssh="TERM=linux ssh"
 
 #export LANG=ko_KR.EUC-KR
@@ -50,7 +47,7 @@ export LANG="$LC_ALL"
 export MAILCONF=/home/mike/.mutt
 export EDITOR=/usr/bin/vim
 export XDG_CONFIG_HOME=/home/mike/.config
-export BROWSER=firefox
+export BROWSER=chromium
 export GPGKEY=6271B2D8
 export PATH="/home/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\

@@ -85,7 +85,7 @@ URxvt*saveLines: 8000
 URxvt*buffered: false
 
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed
-URxvt.url-select.launcher:  firefox
+URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
@@ -96,7 +96,10 @@ URxvt.urgentOnBell: true
 
 URxvt*loginShell: true
 
-/* Xft.dpi: 180 */
+URxvt*transparent: true
+URxvt*shading: 25
+
+/* Xft.dpi: 166 */
 /* Xft.autohint: 0 */
 /* Xft.lcdfilter:  lcddefault */
 /* Xft.hintstyle:  hintfull */
