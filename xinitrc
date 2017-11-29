@@ -6,6 +6,7 @@ xcompmgr -c &
 setxkbmap -option caps:escape
 xset -b
 xrdb -merge .Xresources
+wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec i3
 
 
