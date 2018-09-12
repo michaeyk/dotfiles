@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+ZSH_THEME="bullet-train"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -57,3 +57,4 @@ eval `keychain --eval --agents ssh id_rsa`
 
 export PATH="$HOME/.rvm/bin:$HOME/.npm/bin:$PATH"
 eval `dircolors ~/.dircolors`
+
