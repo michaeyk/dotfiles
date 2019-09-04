@@ -75,8 +75,8 @@ URxvt.intensityStyles: false
 
 ! fonts
 ! run "fc-list" for a list of available fonts
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=32
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=32
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=30
+URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=30
 URxvt*scrollBar: False
 URxvt*scrollTtyOutput: False
 URxvt*scrollTtyKeypress: True
@@ -84,8 +84,8 @@ URxvt*secondaryScroll: True
 URxvt*saveLines: 8000
 URxvt*buffered: false
 
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed
-URxvt.url-select.launcher:  chrome
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed,resize-font
+URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
@@ -99,10 +99,10 @@ URxvt*loginShell: true
 URxvt*transparent: true
 URxvt*shading: 45
 
-/* Xft.dpi: 166 */
-/* Xft.autohint: 0 */
-/* Xft.lcdfilter:  lcddefault */
-/* Xft.hintstyle:  hintfull */
-/* Xft.hinting: 1 */
-/* Xft.antialias: 1 */
-/* Xft.rgba: rgb */
+Xft.dpi: 192
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
