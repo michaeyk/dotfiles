@@ -1,12 +1,13 @@
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
-xcompmgr -c &
 /usr/bin/urxvtd -f -q -o 
-# eval $(gpg-agent --daemon) &
 setxkbmap -option caps:escape
 xset -b
+xset m 30/10 0
+xrandr --output DP-3 --scale 1.25x1.25
 xrdb -merge .Xresources
-wal -i "$(< "${HOME}/.cache/wal/wal")"
+xbindkeys
+# wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec i3
 
 
