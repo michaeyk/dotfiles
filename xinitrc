@@ -7,7 +7,7 @@ xset m 30/10 0
 xrandr --output DP-3 --scale 1.25x1.25
 xrdb -merge .Xresources
 xbindkeys
-# wal -i "$(< "${HOME}/.cache/wal/wal")"
+wal -R
 exec i3
 
 
