@@ -54,7 +54,9 @@ export PATH="/home/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sb
 /home/mike/android-sdk-linux/platform-tools:$PATH"
 
 eval `keychain --eval --agents ssh id_rsa`
-
-export PATH="$HOME/.rvm/bin:$HOME/.npm/bin:$PATH"
 eval `dircolors ~/.dircolors`
 
+# If running from tty1 start sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi

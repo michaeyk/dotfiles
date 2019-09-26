@@ -115,8 +115,6 @@ source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 set spoolfile = "+gmail/Inbox"
 source "~/.mutt/accounts/gmail"
 folder-hook $folder 'source ~/.mutt/accounts/gmail'
-
-
  
 
 
