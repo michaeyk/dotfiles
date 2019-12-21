@@ -90,9 +90,10 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
+set text_flowed
 
 # My Editor
-set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "set spell"'
+set editor='vim + -c "set textwidth=0" -c "set wrap" -c "set wrapmargin=0" -c "set nocp" -c "set spell"'
 
 # goobook 
 set query_command="goobook query '%s'"
