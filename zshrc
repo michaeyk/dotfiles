@@ -38,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi=/usr/bin/vim
 alias more=less
+alias ssh="TERM=screen-256color ssh"
 
 #export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.utf-8 
