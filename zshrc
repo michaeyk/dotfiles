@@ -35,6 +35,8 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' hosts off
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 alias vi=/usr/bin/vim
 alias more=less
