@@ -38,7 +38,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-alias vi=/usr/bin/vim
+alias vi=/usr/bin/nvim
 alias more=less
 alias ssh="TERM=screen-256color ssh"
 
@@ -47,7 +47,8 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL" 
 
 export MAILCONF=/home/mike/.mutt
-export EDITOR=/usr/bin/vim
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgview'
+export EDITOR=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
 export BROWSER=chrome
 export GPGKEY=6271B2D8
