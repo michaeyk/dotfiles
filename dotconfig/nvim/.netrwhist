@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/mike/bin'
+let g:netrw_dirhist_6='/home/mike/.config/sway'
+let g:netrw_dirhist_5='/home/mike/.config/sxiv/exec'
+let g:netrw_dirhist_4='/home/mike/.config/nnn/sessions'
+let g:netrw_dirhist_3='/mnt/mike/documents/realestate/pimpchoko_llc'
+let g:netrw_dirhist_2='/home/mike'
+let g:netrw_dirhist_1='/home/mike/vimwiki/diary'
+let g:netrw_dirhist_0='/home/mike'
+let g:netrw_dirhist_9='/home/mike/bin'
+let g:netrw_dirhist_8='/home/mike/.config/sway'

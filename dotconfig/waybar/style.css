@@ -1,0 +1,81 @@
+@import "/home/mike/.cache/wal/colors-waybar.css";
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   Hack Nerd Font;
+    font-size:     15px;
+    background: @background;
+    /* background: transparent; */
+}
+
+window {
+    font-weight: bold;
+    background: transparent;
+    color: @cursor;
+}
+
+/* #workspaces { */
+/*     margin: 0 5px; */
+/* } */
+
+#workspaces button {
+    padding:    0 5px;
+    color: @cursor;
+}
+
+#workspaces button.visible {
+    color:  @foreground;
+}
+
+#workspaces button.focused {
+    /* background: @color3; */
+    border-bottom: 2px solid @cursor;
+}
+
+#mode {
+  border: 20px red solid;
+}
+
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight,#clock {
+    margin:     0px 6px 0px 10px;
+    padding: 5px;
+
+    /* border-left: 2px red solid; */
+
+    min-width:  25px;
+}
+
+#clock {
+  color: @foreground;
+  margin:     0px 16px 0px 10px;
+  min-width:  10px;
+}
+
+#battery {
+
+}
+
+#battery.warning {
+  color: orange;  
+}
+
+#battery.critical {
+  color:  red; 
+}
+
+#battery.good {
+  color: white;
+}
+
+#battery.charging {
+  color: green;
+}
+
+#network.wifi { 
+  color:rgba(32,230,124,.8);
+}
+
+#network.disconnected{
+  color:orange;
+}
