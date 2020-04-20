@@ -40,6 +40,7 @@ source /usr/share/fzf/completion.zsh
 
 alias vi=/usr/bin/nvim
 alias more=less
+alias gcal=gcalcli
 alias ssh="TERM=screen-256color ssh"
 
 #export LANG=ko_KR.EUC-KR
@@ -52,7 +53,7 @@ export EDITOR=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
 export BROWSER=chrome
 export GPGKEY=6271B2D8
-export PATH="/home/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
+export PATH="/home/mike/bin:/home/mike/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
 /home/mike/android-sdk-linux/platform-tools:$PATH"
 
@@ -63,3 +64,4 @@ eval `dircolors ~/.dircolors`
 if [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
+

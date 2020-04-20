@@ -100,12 +100,9 @@ for_window [app_id="terminal"] move workspace 3
 for_window [class="Spotify"] move workspace 4
 for_window [app_id="gajim"] move workspace 5
 
-for_window [app_id="compose_email"] floating enable
-for_window [app_id="compose_email"] resize set 30 ppt 30 ppt
-
 # Assign apps to workspaces
 assign [class="Google-chrome"] workspace 2
-assign [app_id="evolution"] workspace 6
+assign [app_id="mutt"] workspace 6
 
 ### Key bindings
 #
@@ -269,7 +266,7 @@ exec $term --class calc -e python
 exec google-chrome-stable
 exec gajim
 exec spotify
-exec evolution
+exec $term --class mutt -e mutt
 exec ~/bin/thinkorswim
 
 include /etc/sway/config.d/*
