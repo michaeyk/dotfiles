@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+ZSH_THEME="candy"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -24,8 +24,7 @@ ZSH_THEME="pygmalion"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
-
+plugins=(git vi-mode virtualenv)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle ':completion:*' accept-exact '*(N)'
@@ -40,18 +39,18 @@ source /usr/share/fzf/completion.zsh
 
 alias vi=/usr/bin/nvim
 alias more=less
-alias gcal=gcalcli
+alias gc=gcalcli
 alias ssh="TERM=screen-256color ssh"
 
 #export LANG=ko_KR.EUC-KR
-export LC_ALL=en_US.utf-8 
+export LC_ALL=en_US.UTF-8 
 export LANG="$LC_ALL" 
 
 export MAILCONF=/home/mike/.mutt
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgview'
 export EDITOR=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
-export BROWSER=chrome
+export BROWSER=firefox
 export GPGKEY=6271B2D8
 export PATH="/home/mike/bin:/home/mike/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
@@ -64,4 +63,8 @@ eval `dircolors ~/.dircolors`
 if [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
+
+POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time virtualenv)
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 

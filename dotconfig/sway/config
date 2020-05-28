@@ -30,9 +30,10 @@ client.background       $color2
 # Output configuration
 output "*" background $wallpaper fill
 
-output eDP-1 pos 0 0 scale 2
+output eDP-1 pos 3840 0 scale 2
 output DP-5 pos 1920 0 res 3440x1440 
-output DP-1 pos 1920 0 res 3440x1440 
+# output DP-1 pos 1920 0 res 3440x1440 
+output DP-1 pos 0 0 res 3840x1600
 
 # Workspaces
 workspace 1 output eDP-1
@@ -81,7 +82,7 @@ bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screens
 bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
 # Key bindings for launching apps
-bindsym $mod+g exec google-chrome-stable
+bindsym $mod+g exec firefox
 bindsym $mod+u [app_id="dropdown"] scratchpad show, resize set 50 ppt 50 ppt 
 bindsym $mod+c [app_id="calc"] scratchpad show, resize set 30 ppt 30 ppt
 
@@ -98,10 +99,10 @@ for_window [app_id="calc"] move scratchpad
 for_window [title=".*thinkorswim.*"] move workspace 1
 for_window [app_id="terminal"] move workspace 3
 for_window [class="Spotify"] move workspace 4
-for_window [app_id="gajim"] move workspace 5
 
 # Assign apps to workspaces
-assign [class="Google-chrome"] workspace 2
+assign [class="firefox"] workspace 2
+assign [app_id="profanity"] workspace 5
 assign [app_id="mutt"] workspace 6
 
 ### Key bindings
@@ -263,8 +264,8 @@ exec swayidle -w \
 exec $term --class dropdown -e tmux new -s dropdown
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
-exec google-chrome-stable
-exec gajim
+exec firefox
+exec $term --class profanity -e profanity
 exec spotify
 exec $term --class mutt -e mutt
 exec ~/bin/thinkorswim

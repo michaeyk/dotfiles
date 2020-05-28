@@ -73,6 +73,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
+  Plug 'bfredl/nvim-ipy'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -91,7 +92,8 @@ call plug#begin()
 call plug#end()
 
 " colorscheme
-colo wal
+" colo wal
+colo seoul256
 
 " Airline
 let g:airline_theme = 'tomorrow'
@@ -134,6 +136,8 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>yy "+yy
 
 " Easy window split
+set splitbelow splitright
+
 nmap <leader>sh :topleft  vnew<CR>
 nmap <leader>sl :botright vnew<CR>
 nmap <leader>sk :topleft  new<CR>
@@ -230,7 +234,37 @@ nnoremap <Leader>gpl :Dispatch! git pull<CR>
 
 command -nargs=1 WriteEncrypted w !gpg -c -o <q-args>
 
-" coc bindings
+" coc config
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+let g:coc_global_extensions = [
+      \ 'coc-snippets',
+      \ 'coc-pairs',
+      \ 'coc-tsserver',
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-json'
+      \ ]
+
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
@@ -240,9 +274,14 @@ imap <C-l> <Plug>(coc-snippets-expand)
 " use <c-space>for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
-nmap <silent> gd <Plug>(coc-definition)
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -252,6 +291,22 @@ function! s:show_documentation()
 endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
+
+" init.vim
+function! ConnectToPipenvKernel()
+  let l:kernel = system('echo "ipykernel_$(basename "$(pwd)")" | tr -d "\n"')
+  call IPyConnect('--kernel', l:kernel, '--no-window')
+endfunction
+
+command! -nargs=0 RunQtConsole
+  \call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True")
+
+let g:ipy_celldef = '^# %%' " regex for cell start and end
+
+nmap <silent> <leader>jqt :RunQtConsole<Enter>
+nmap <silent> <leader>jk :ConnectToPipenvKernel<Enter>
+nmap <silent> <leader>jc <Plug>(IPy-RunCell)
+nmap <silent> <leader>ja <Plug>(IPy-RunAll)
 
 " cut and paste for wayland
 xnoremap "+y y:call system("wl-copy", @")<cr>
