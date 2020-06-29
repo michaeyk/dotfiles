@@ -9,9 +9,8 @@ set pastetoggle=<F3>
 
 " syntax enable
 syntax on
-" highlight 81 column
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+set colorcolumn=100
+" call matchadd('ColorColumn', '\%81v', 80)
 
 set encoding=utf-8
 set showcmd                     " display incomplete commands
