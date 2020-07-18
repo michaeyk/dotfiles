@@ -49,7 +49,7 @@ workspace 10 output eDP-1
 
 # Input configuration
 input type:keyboard {
-  xkb_options caps:escape
+  xkb_options ctrl:nocaps
 }
 
 input type:touchpad {
@@ -79,7 +79,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') /tmp/screenshot.png && ~/bin/screenshot.sh
 bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
 bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screenshot.sh
-bindsym Control+Shift+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f -
 
 # Key bindings for launching apps
 bindsym $mod+g exec firefox
@@ -257,8 +257,8 @@ bar {
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' \
+         timeout 600 'swaylock -f -c 000000' \
+         timeout 900 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 exec $term --class dropdown -e tmux new -s dropdown
