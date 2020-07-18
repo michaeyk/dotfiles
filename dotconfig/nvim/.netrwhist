@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/mike/.dotfiles/dotconfig/nvim/plugged/vim-snippets/snippets'
 let g:netrw_dirhist_6='/home/mike/.passwd'
 let g:netrw_dirhist_5='/home/mike/projects/ai_trading/project_3'
 let g:netrw_dirhist_4='/home/mike/.config/sway'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_1='/home/mike/.local/share/jupyter/kernels/ai_trading'
 let g:netrw_dirhist_0='/home/mike/.config/nvim'
 let g:netrw_dirhist_9='/home/mike/.config/sway'
 let g:netrw_dirhist_8='/home/mike/.config/spicetify/Themes/wal'
-let g:netrw_dirhist_7='/home/mike/bin'

@@ -66,7 +66,6 @@ call plug#begin()
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'honza/vim-snippets'
   Plug 'vimwiki/vimwiki'
   Plug 'mattn/calendar-vim'
   Plug 'junegunn/fzf.vim'
@@ -120,13 +119,10 @@ autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellesca
 " Keybindings 
 
 let mapleader = ","
-imap jj <Esc>
+" imap jj <Esc>
 
 " Save a file 
 nnoremap <Leader>w :w<CR> 
-
-" fly between buffers
-nnoremap <leader>l :ls<CR>:b<space>
 
 " System clipboard
 nnoremap <Leader>p "+p
@@ -213,6 +209,11 @@ nnoremap <silent> <Leader>bc :BCommits<CR>
 
 " switch to last buffer
 nmap <Leader>b <C-^>
+
+" terminal in a new tab
+nmap <Leader>t :tabnew +terminal<CR>
+" esc to insert mode in terminal
+tnoremap <Esc> <C-\><C-n>
 
 " fugitive git bindings
 nnoremap <Leader>ga :Git add %:p<CR><CR>
