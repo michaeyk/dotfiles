@@ -62,6 +62,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-obsession'
   Plug 'jamessan/vim-gnupg'
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -72,6 +73,7 @@ call plug#begin()
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
+  Plug 'mcchrish/nnn.vim'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -209,6 +211,9 @@ nnoremap <silent> <Leader>bc :BCommits<CR>
 
 " switch to last buffer
 nmap <Leader>b <C-^>
+
+" nnn
+nnoremap <leader>n :NnnPicker '%:p:h'<CR>
 
 " terminal in a new tab
 nmap <Leader>t :tabnew +terminal<CR>
