@@ -214,9 +214,14 @@ nmap <Leader>b <C-^>
 
 " nnn
 nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-s>': 'split',
+      \ '<c-v>': 'vsplit' }
 
 " terminal in a new tab
 nmap <Leader>t :tabnew +terminal<CR>
+
 " esc to insert mode in terminal
 tnoremap <Esc> <C-\><C-n>
 

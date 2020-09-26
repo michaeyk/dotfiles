@@ -57,12 +57,17 @@ export LANG="$LC_ALL"
 export MAILCONF=/home/mike/.mutt
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgview'
 export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
 export BROWSER=firefox
 export GPGKEY=6271B2D8
 export PATH="/home/mike/bin:/home/mike/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
 /home/mike/android-sdk-linux/platform-tools:$PATH"
+
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
 
 eval `dircolors ~/.dircolors`
 

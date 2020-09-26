@@ -54,6 +54,8 @@ input type:keyboard {
 
 input type:touchpad {
   tap enabled
+  tap_button_map lrm
+  scroll_method two_finger
 }
 
 # touchscreen
@@ -102,7 +104,8 @@ for_window [class="Spotify"] move workspace 4
 
 # Assign apps to workspaces
 assign [class="firefox"] workspace 2
-assign [app_id="profanity"] workspace 5
+assign [app_id="weechat"] workspace 5
+assign [class="PB for Desktop"] workspace 5
 assign [app_id="mutt"] workspace 6
 
 ### Key bindings
@@ -257,15 +260,16 @@ bar {
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
 exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000' \
-         timeout 900 'swaymsg "output * dpms off"' \
+         timeout 900 'swaylock -f -c 000000' \
+         timeout 1200 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 exec $term --class dropdown -e tmux new -s dropdown
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
 exec firefox
-exec $term --class profanity -e profanity
+exec $term --class weechat -e weechat
+exec pb-for-desktop
 exec spotify
 exec $term --class mutt -e mutt
 exec ~/bin/thinkorswim
