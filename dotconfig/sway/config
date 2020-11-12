@@ -16,7 +16,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
+# set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
+set $menu exec kitty --class launcher -e /usr/bin/sway-launcher-desktop
 
 # Pywal Coloring
 # class                 border          background      text         indicator         child_border
@@ -32,7 +33,7 @@ output "*" background $wallpaper fill
 
 output eDP-1 pos 3840 0 scale 2
 output DP-5 pos 1920 0 res 3440x1440 
-# output DP-1 pos 1920 0 res 3440x1440 
+#output DP-1 pos 1920 0 res 3440x1440 
 output DP-1 pos 0 0 res 3840x1600
 
 # Workspaces
@@ -79,8 +80,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshots using grim and slurp
 bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') /tmp/screenshot.png && ~/bin/screenshot.sh
-bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
-bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screenshot.sh
+bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
+bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screenshot.sh 
 bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f -
 
 # Key bindings for launching apps
@@ -92,18 +93,23 @@ bindsym $mod+c [app_id="calc"] scratchpad show, resize set 30 ppt 30 ppt
 for_window [app_id="pavucontrol"] floating enable 
 for_window [app_id="pavucontrol"] resize set 30 ppt 30 ppt
 
+for_window [app_id="launcher"] floating enable
+for_window [app_id="launcher"] resize set 50 ppt 50 ppt
+
 for_window [app_id="dropdown"] floating enable 
 for_window [app_id="dropdown"] move scratchpad
 
 for_window [app_id="calc"] floating enable 
 for_window [app_id="calc"] move scratchpad
 
+# for_window [app_id="launcher"] floating enable, border pixel 10, resize set 50 ppt 50 ppt sticky enable
+
 for_window [title=".*thinkorswim.*"] move workspace 1
 for_window [app_id="terminal"] move workspace 3
 for_window [class="Spotify"] move workspace 4
 
 # Assign apps to workspaces
-assign [class="firefox"] workspace 2
+assign [app_id="firefox"] workspace 2
 assign [app_id="weechat"] workspace 5
 assign [class="PB for Desktop"] workspace 5
 assign [app_id="mutt"] workspace 6
@@ -259,11 +265,7 @@ bar {
 # Launch on start
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
-exec swayidle -w \
-         timeout 900 'swaylock -f -c 000000' \
-         timeout 1200 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+exec "$HOME/.config/sway/idle.sh"
 exec $term --class dropdown -e tmux new -s dropdown
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
