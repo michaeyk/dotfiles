@@ -1,4 +1,8 @@
 " ftplugin/mail.vim
 setl tw=72
-setl fo=aw
-match ErrorMsg '\s\+$'
+setl fo+=w
+setl nojs
+setl nosmartindent
+set list
+set listchars=trail:•
+set spell spelllang=en_us

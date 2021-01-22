@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/spotify", "pulseaudio", "network", "battery", "clock", "custom/power"],
+    "modules-right": ["tray", "mpd", "pulseaudio", "network", "custom/crypto", "battery", "clock", "custom/power"],
     "sway/mode": {
         "format": " {}"
     },
@@ -14,12 +14,11 @@
     "all-outputs": true,
     "format": "{name}: {icon}",
     "format-icons": {
-        "1": "$ ", 
-        "2": " ",
-        "3": " ",
-        "4": " ",
-        "5": " ",
-        "6": " ",
+        "1": " ", 
+        "2": " ",
+        "3": " ", 
+        "5": "", 
+        "6": " ",
         "urgent": " ",
         "focused": " ",
         "default": " "
@@ -72,12 +71,24 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
+    "mpd": {
+        "format": "{artist} - {title}"
+    },
+
     "custom/spotify": {
         "format": "  {}",
         "return-type": "json", 
         "max-length": 50,
         "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null",
         "exec-if": "pgrep spotify"
+    },
+
+    "custom/crypto": {
+        "format": "{}",
+        "interval": 600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/crypto/crypto.py",
+        "exec-if": "ping pro-api.coinmarketcap.com -c1"
     },
 
     "pulseaudio": {

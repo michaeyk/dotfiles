@@ -10,6 +10,23 @@ set $down j
 set $up k
 set $right l
 
+# swaylock
+set $lock swaylock --screenshots --clock --indicator-idle-visible \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--ring-color 455a64 \
+	--key-hl-color be5046 \
+	--text-color ffc107 \
+	--line-color 00000000 \
+	--inside-color 00000088 \
+	--separator-color 00000000 \
+	--fade-in 2 \
+	--effect-scale 0.5 --effect-blur 7x5 --effect-scale 2 \
+	--effect-vignette 0.5:0.5
+
+set $lockman exec bash ~/.config/sway/lockman.sh
+bindsym $mod+z exec $lockman
+
 # Your preferred terminal emulator
 set $term kitty
 
@@ -88,6 +105,7 @@ bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f -
 bindsym $mod+g exec firefox
 bindsym $mod+u [app_id="dropdown"] scratchpad show, resize set 50 ppt 50 ppt 
 bindsym $mod+c [app_id="calc"] scratchpad show, resize set 30 ppt 30 ppt
+bindsym $mod+m [app_id="music"] scratchpad show, resize set 50 ppt 50 ppt 
 
 # Window specifics
 for_window [app_id="pavucontrol"] floating enable 
@@ -102,17 +120,18 @@ for_window [app_id="dropdown"] move scratchpad
 for_window [app_id="calc"] floating enable 
 for_window [app_id="calc"] move scratchpad
 
+for_window [app_id="music"] floating enable 
+for_window [app_id="music"] move scratchpad
+
 # for_window [app_id="launcher"] floating enable, border pixel 10, resize set 50 ppt 50 ppt sticky enable
 
 for_window [title=".*thinkorswim.*"] move workspace 1
 for_window [app_id="terminal"] move workspace 3
-for_window [class="Spotify"] move workspace 4
 
 # Assign apps to workspaces
 assign [app_id="firefox"] workspace 2
-assign [app_id="weechat"] workspace 5
-assign [class="PB for Desktop"] workspace 5
-assign [app_id="mutt"] workspace 6
+assign [app_id="weechat"] workspace 6
+assign [app_id="mutt"] workspace 5
 
 ### Key bindings
 #
@@ -265,14 +284,17 @@ bar {
 # Launch on start
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
-exec "$HOME/.config/sway/idle.sh"
-exec $term --class dropdown -e tmux new -s dropdown
+exec swayidle -w \
+         timeout 600 'swaylock -f -c 000000 -i $lock_bg' \
+         timeout 900 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000 -i $lock_bg'
+exec $term --class dropdown -e tmux new -s dropdown 
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
+exec $term --class music -e ncmpcpp
 exec firefox
 exec $term --class weechat -e weechat
-exec pb-for-desktop
-exec spotify
 exec $term --class mutt -e mutt
 exec ~/bin/thinkorswim
 

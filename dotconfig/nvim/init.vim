@@ -1,15 +1,18 @@
 set number
 set relativenumber
-set nocompatible
+set nocp
 set magic 
 set path=.,**
+set noswapfile
 set wildmenu
 set wildmode=longest:list,full
 set pastetoggle=<F3>
+set mouse=n
+set scrolloff=8
 
 " syntax enable
 syntax on
-set colorcolumn=100
+set colorcolumn=80,100
 " call matchadd('ColorColumn', '\%81v', 80)
 
 set encoding=utf-8
@@ -67,6 +70,7 @@ call plug#begin()
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'honza/vim-snippets'
   Plug 'vimwiki/vimwiki'
   Plug 'mattn/calendar-vim'
   Plug 'junegunn/fzf.vim'
@@ -74,6 +78,7 @@ call plug#begin()
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
   Plug 'mcchrish/nnn.vim'
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } 
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -94,6 +99,7 @@ call plug#end()
 " colorscheme
 " colo wal
 colo seoul256
+hi Normal ctermbg=NONE guibg=NONE
 
 " Airline
 let g:airline_theme = 'tomorrow'
@@ -114,17 +120,17 @@ augroup vimwikigroup
     autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
 augroup end
 
-" Run python script
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-
 " Keybindings 
 
-let mapleader = ","
-" imap jj <Esc>
+let mapleader = " "
+inoremap kj <Esc>
+inoremap jk <Esc>
 
 " Save a file 
 nnoremap <Leader>w :w<CR> 
+
+" Write encypted file
+command -nargs=1 WriteEncrypted w !gpg -c -o <q-args>
 
 " System clipboard
 nnoremap <Leader>p "+p
@@ -175,10 +181,6 @@ nmap <silent> <C-N> :silent noh<CR>
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
 " "Refocus" folds
 nnoremap <Leader>z zMzvzz
 
@@ -220,6 +222,7 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit' }
 
 " terminal in a new tab
+" nmap <Leader>t :terminal<CR>
 nmap <Leader>t :tabnew +terminal<CR>
 
 " esc to insert mode in terminal
@@ -242,7 +245,6 @@ nnoremap <Leader>go :Git checkout<Space>
 nnoremap <Leader>gps :Dispatch! git push<CR>
 nnoremap <Leader>gpl :Dispatch! git pull<CR>
 
-command -nargs=1 WriteEncrypted w !gpg -c -o <q-args>
 
 " coc config
 " TextEdit might fail if hidden is not set.
@@ -266,14 +268,7 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = [
-      \ 'coc-snippets',
-      \ 'coc-pairs',
-      \ 'coc-tsserver',
-      \ 'coc-eslint',
-      \ 'coc-prettier',
-      \ 'coc-json'
-      \ ]
+let g:python3_host_prog = '~/dev/neovim/bin/python'
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
@@ -290,6 +285,17 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -305,11 +311,8 @@ nmap <leader>rn <Plug>(coc-rename)
 " init.vim
 function! ConnectToPipenvKernel()
   let l:kernel = system('echo "ipykernel_$(basename "$(pwd)")" | tr -d "\n"')
-  call IPyConnect('--kernel', l:kernel, '--no-window')
+  call IPython('--kernel', l:kernel, '--no-window')
 endfunction
-
-command! -nargs=0 RunQtConsole
-  \call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True")
 
 let g:ipy_celldef = '^# %%' " regex for cell start and end
 
