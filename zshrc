@@ -48,22 +48,26 @@ source /usr/share/fzf/completion.zsh
 alias vi=/usr/bin/nvim
 alias more=less
 alias gc=gcalcli
+alias weather="curl wttr.in/80108"
 alias ssh="TERM=screen-256color ssh"
+alias nnn='nnn -ea'
 
 #export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.UTF-8 
 export LANG="$LC_ALL" 
 
 export MAILCONF=/home/mike/.mutt
-export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;n:notes;v:imgview'
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgur'
+export NNN_COLORS="2136"
+export NNN_BMS="d:~/Downloads"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
 export BROWSER=firefox
 export GPGKEY=6271B2D8
-export PATH="/home/mike/bin:/home/mike/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
-/home/mike/android-sdk-linux/platform-tools:$PATH"
+$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
     source /usr/share/nnn/quitcd/quitcd.bash_zsh
