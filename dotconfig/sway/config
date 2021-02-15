@@ -129,7 +129,7 @@ for_window [title=".*thinkorswim.*"] move workspace 1
 for_window [app_id="terminal"] move workspace 3
 
 # Assign apps to workspaces
-assign [app_id="firefox"] workspace 2
+# assign [app_id="firefox"] workspace 2
 assign [app_id="weechat"] workspace 6
 assign [app_id="mutt"] workspace 5
 

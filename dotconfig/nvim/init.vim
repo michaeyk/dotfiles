@@ -110,7 +110,7 @@ set laststatus=2
 " colorscheme
 set t_Co=256
 " colo wal
-colo gruvbox
+colo seoul256
 
 " ctags
 set tags=tags;
@@ -207,6 +207,11 @@ fun! s:fzf_root()
 	let path = finddir(".git", expand("%:p:h").";")
 	return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
 endfun
+
+" ripgrep
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+let g:rg_derive_root='true'
+nnoremap <leader>rg :Rg<CR>
 
 " nnoremap <silent> <Leader>f. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>ff :exe 'Files ' . <SID>fzf_root()<CR>

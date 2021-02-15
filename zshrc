@@ -32,7 +32,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode virtualenv)
+plugins=(git vi-mode virtualenv zsh-autosuggestions zsh-syntax-highlighting)
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle ':completion:*' accept-exact '*(N)'
@@ -45,21 +47,25 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+bindkey '' autosuggest-accept 
+
 alias vi=/usr/bin/nvim
 alias more=less
 alias gc=gcalcli
 alias weather="curl wttr.in/80108"
 alias ssh="TERM=screen-256color ssh"
 alias nnn='nnn -ea'
+alias gcob='git branch | fzf | xargs git checkout'
 
 #export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.UTF-8 
 export LANG="$LC_ALL" 
 
-export MAILCONF=/home/mike/.mutt
+export MAILCONF=/home/mike/.config/mutt
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgur'
 export NNN_COLORS="2136"
-export NNN_BMS="d:~/Downloads"
+export NNN_BMS="d:~/Downloads;w:~/Pictures/Wal"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
