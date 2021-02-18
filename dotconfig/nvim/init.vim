@@ -80,11 +80,11 @@ call plug#begin()
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
-  Plug 'mcchrish/nnn.vim'
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } 
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-lua/diagnostic-nvim'
+  Plug 'voldikss/vim-floaterm'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -179,7 +179,7 @@ map <f2> :cnext<CR>
 " w!! to write as root
 cmap w!! w !sudo tee % >/dev/null
 
-" Toggle spell checking with ',s'
+" Toggle spell checking with '<leader>s'
 nmap <silent> <leader>s :set spell!<CR>
 
 " calendar-vim
@@ -233,16 +233,18 @@ nnoremap <silent> <Leader>bc :BCommits<CR>
 " switch to last buffer
 nmap <Leader>b <C-^>
 
-" nnn
-nnoremap <leader>n :NnnPicker '%:p:h'<CR>
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-s>': 'split',
-      \ '<c-v>': 'vsplit' }
-
-" terminal in a new tab
-" nmap <Leader>t :terminal<CR>
-nmap <Leader>t :tabnew +terminal<CR>
+nnoremap   <silent> <leader>tt :FloatermNew<CR>
+tnoremap   <silent> <leader>tt <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent> <leader>tp :FloatermPrev<CR>
+tnoremap   <silent> <leader>tp <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent> <leader>tn :FloatermNext<CR>
+tnoremap   <silent> <leader>tn <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent> <leader>tk :FloatermKill<CR>
+tnoremap   <silent> <leader>tk <C-\><C-n>:FloatermKill<CR>
+nnoremap   <silent> <leader>u :FloatermToggle<CR>
+tnoremap   <silent> <leader>u <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent> <leader>n :FloatermNew nnn<CR>
+tnoremap   <silent> <leader>n <C-\><C-n>:FloatermNew nnn<CR>
 
 " esc to insert mode in terminal
 tnoremap <Esc> <C-\><C-n>
