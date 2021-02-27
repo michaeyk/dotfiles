@@ -76,7 +76,9 @@ call plug#begin()
   Plug 'honza/vim-snippets'
   Plug 'vimwiki/vimwiki'
   Plug 'mattn/calendar-vim'
-  Plug 'junegunn/fzf.vim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
@@ -202,33 +204,14 @@ nnoremap <Leader>z zMzvzz
 " the cursor happens to be.
 nnoremap zO zCzO
 
-" fzf bindings
-fun! s:fzf_root()
-	let path = finddir(".git", expand("%:p:h").";")
-	return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
-endfun
-
-" ripgrep
-set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
-let g:rg_derive_root='true'
-nnoremap <leader>rg :Rg<CR>
-
-" nnoremap <silent> <Leader>f. :Files <C-r>=expand("%:h")<CR>/<CR>
-nnoremap <silent> <Leader>ff :exe 'Files ' . <SID>fzf_root()<CR>
-nnoremap <silent> <Leader>fc :Colors<CR>
-nnoremap <silent> <Leader>fh :History<CR>
-nnoremap <silent> <Leader>fb :Buffers<CR>
-nnoremap <silent> <Leader>; :Commands<CR>
-nnoremap <silent> <Leader>h :Helptags<CR>
-nnoremap <silent> <Leader>ll :Lines<CR>
-nnoremap <silent> <Leader>lb :BLines<CR>
-
-let g:fzf_commits_log_options = '--graph --color=always
-  \ --format="%C(yellow)%h%C(red)%d%C(reset)
-  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
-
-nnoremap <silent> <Leader>c  :Commits<CR>
-nnoremap <silent> <Leader>bc :BCommits<CR>
+" Find files using Telescope command-line sugar
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
+nnoremap <leader>c <cmd>Telescope git_commits<cr>
+nnoremap <leader>bc <cmd>Telescope git_bcommits<cr>
 
 " switch to last buffer
 nmap <Leader>b <C-^>
