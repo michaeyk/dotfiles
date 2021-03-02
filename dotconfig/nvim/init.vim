@@ -79,6 +79,7 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
@@ -325,6 +326,20 @@ nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v
       on_attach = on_attach,
     }
   end
+
+    require('telescope').setup {
+        extensions = {
+            fzf_writer = {
+                minimum_grep_characters = 2,
+                minimum_files_characters = 2,
+
+                -- Disabled by default.
+                -- Will probably slow down some aspects of the sorter, but can make color highlights.
+                -- I will work on this more later.
+                use_highlighter = true,
+            }
+        }
+    }
 EOF
 
 " Completion
@@ -332,9 +347,6 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " let g:completion_enable_auto_popup = 0
 
 let g:completion_enable_snippet = 'UltiSnips'
-
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
