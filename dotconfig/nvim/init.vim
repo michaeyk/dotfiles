@@ -170,14 +170,14 @@ vnoremap j gj
 vnoremap k gk
 
 " Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
 " cnext / cprev
-map <f1> :cprev<CR>
-map <f2> :cnext<CR>
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 " w!! to write as root
 cmap w!! w !sudo tee % >/dev/null
@@ -347,6 +347,9 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " let g:completion_enable_auto_popup = 0
 
 let g:completion_enable_snippet = 'UltiSnips'
+
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
