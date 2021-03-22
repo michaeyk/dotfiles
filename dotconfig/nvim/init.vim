@@ -79,7 +79,8 @@ call plug#begin()
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
@@ -327,19 +328,27 @@ nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v
     }
   end
 
+    local actions = require('telescope.actions')
     require('telescope').setup {
-        extensions = {
-            fzf_writer = {
-                minimum_grep_characters = 2,
-                minimum_files_characters = 2,
+        defaults = {
+            mappings = {
+                i = { 
+                    ["<C-j>"] = actions.move_selection_next,
+                    ["<C-k>"] = actions.move_selection_previous,
+                    ["<C-q>"] = actions.send_to_qflist,
+                }
+            }
+        },
 
-                -- Disabled by default.
-                -- Will probably slow down some aspects of the sorter, but can make color highlights.
-                -- I will work on this more later.
-                use_highlighter = true,
+        extensions = {
+            fzy_native = {
+                override_generic_sorter = false,
+                override_file_sorter = true,
             }
         }
     }
+
+    require('telescope').load_extension('fzy_native')
 EOF
 
 " Completion
