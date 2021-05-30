@@ -102,7 +102,7 @@ bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screens
 bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f -
 
 # Key bindings for launching apps
-bindsym $mod+g exec firefox
+bindsym $mod+n exec brave --allow-file-access-from-files
 bindsym $mod+u [app_id="dropdown"] scratchpad show, resize set 50 ppt 50 ppt 
 bindsym $mod+c [app_id="calc"] scratchpad show, resize set 30 ppt 30 ppt
 bindsym $mod+m [app_id="music"] scratchpad show, resize set 50 ppt 50 ppt 
@@ -125,7 +125,7 @@ for_window [app_id="music"] move scratchpad
 
 # for_window [app_id="launcher"] floating enable, border pixel 10, resize set 50 ppt 50 ppt sticky enable
 
-for_window [title=".*thinkorswim.*"] move workspace 1
+#for_window [title=".*thinkorswim.*"] move workspace 1
 for_window [app_id="terminal"] move workspace 3
 
 # Assign apps to workspaces
@@ -293,9 +293,9 @@ exec $term --class dropdown -e tmux new -s dropdown
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
 exec $term --class music -e ncmpcpp
-exec firefox
+#exec firefox
 exec $term --class weechat -e weechat
 exec $term --class mutt -e mutt
-exec ~/bin/thinkorswim
+# exec ~/bin/thinkorswim
 
 include /etc/sway/config.d/*

@@ -56,6 +56,7 @@ alias weather="curl wttr.in/80108"
 alias ssh="TERM=screen-256color ssh"
 alias nnn='nnn -ea'
 alias gcob='git branch | fzf | xargs git checkout'
+alias cheat=cht.sh
 
 #export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.UTF-8 
@@ -69,7 +70,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
-export BROWSER=firefox
+export BROWSER=brave
 export GPGKEY=6271B2D8
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\

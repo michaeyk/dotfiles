@@ -75,12 +75,12 @@ call plug#begin()
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'vimwiki/vimwiki'
+  Plug 'tools-life/taskwiki'
   Plug 'mattn/calendar-vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
-"  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
   Plug 'dylanaraps/wal.vim'
   Plug 'bfredl/nvim-ipy'
@@ -89,6 +89,8 @@ call plug#begin()
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-lua/diagnostic-nvim'
   Plug 'voldikss/vim-floaterm'
+  Plug 'RishabhRD/popfix'
+  Plug 'RishabhRD/nvim-cheat.sh' 
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -120,8 +122,9 @@ colo seoul256
 set tags=tags;
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_markdown_link_ext = 1
 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
@@ -150,9 +153,7 @@ nnoremap <Leader>yy "+yy
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger='<c-l>'
-" shortcut to go to next position
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
-" shortcut to go to previous position
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 
@@ -169,12 +170,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
-" Easy window navigation
-" map <C-h> <C-w>h
-" map <C-j> <C-w>j
-" map <C-k> <C-w>k
-" map <C-l> <C-w>l
 
 " cnext / cprev
 map <C-j> :cn<CR>
@@ -235,21 +230,23 @@ tnoremap   <silent> <leader>n <C-\><C-n>:FloatermNew nnn<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " fugitive git bindings
-nnoremap <Leader>ga :Git add %:p<CR><CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gc :Gcommit -v -q<CR>
-nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>ge :Gedit<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gw :Gwrite<CR><CR>
-nnoremap <Leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <Leader>gp :Ggrep<Space>
-nnoremap <Leader>gm :Gmove<Space>
-nnoremap <Leader>gb :Git branch<Space>
-nnoremap <Leader>go :Git checkout<Space>
-nnoremap <Leader>gps :Dispatch! git push<CR>
-nnoremap <Leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
+nmap <leader>gj :difget //3<CR>
+nmap <leader>gf :difget //2<CR>
 
 " init.vim
 function! ConnectToPipenvKernel()
