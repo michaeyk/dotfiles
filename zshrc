@@ -35,6 +35,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git vi-mode virtualenv zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle ':completion:*' accept-exact '*(N)'
