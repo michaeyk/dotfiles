@@ -3,29 +3,13 @@ include "$HOME/.cache/wal/colors-sway"
 
 # Variables
 set $mod Mod4
+set $lock ~/.local/bin/scripts/lock.sh 
 
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-
-# swaylock
-set $lock swaylock --screenshots --clock --indicator-idle-visible \
-	--indicator-radius 100 \
-	--indicator-thickness 7 \
-	--ring-color 455a64 \
-	--key-hl-color be5046 \
-	--text-color ffc107 \
-	--line-color 00000000 \
-	--inside-color 00000088 \
-	--separator-color 00000000 \
-	--fade-in 2 \
-	--effect-scale 0.5 --effect-blur 7x5 --effect-scale 2 \
-	--effect-vignette 0.5:0.5
-
-set $lockman exec bash ~/.config/sway/lockman.sh
-bindsym $mod+z exec $lockman
 
 # Your preferred terminal emulator
 set $term kitty
@@ -34,7 +18,9 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wofi --show drun | xargs swaymsg exec --
-set $menu exec kitty --class launcher -e /usr/bin/sway-launcher-desktop
+# set $menu exec kitty --class launcher -e /usr/bin/sway-launcher-desktop
+# set $menu "rofi -combi-modi window,drun,ssh,run,emoji -show combi -show-icons"
+set $menu "$HOME/.config/rofi/bin/launcher_text"
 
 # Pywal Coloring
 # class                 border          background      text         indicator         child_border
@@ -45,24 +31,33 @@ client.urgent           $color2         $color2         $foreground  $color2    
 client.placeholder      $color2         $color2         $foreground  $color2           $color2
 client.background       $color2
 
+# swaylock
+bindsym $mod+z exec $lockman
+    
+exec swayidle -w \
+    timeout 300 $lock \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep swaylock
+
 # Output configuration
 output "*" background $wallpaper fill
 
-output eDP-1 pos 3840 0 scale 2
-output DP-5 pos 1920 0 res 3440x1440 
-#output DP-1 pos 1920 0 res 3440x1440 
-output DP-1 pos 0 0 res 3840x1600
+#output eDP-1 pos 5120 0 scale 2
+output eDP-1 scale 2
+output DP-1 pos 1920 0 res 5120x1440 
+output DP-3 pos 1920 0 res 5120x1440 
 
 # Workspaces
 workspace 1 output eDP-1
-workspace 2 output DP-5 DP-1
-workspace 3 output DP-5 DP-1
-workspace 4 output eDP-1
-workspace 5 output DP-5 DP-1 
-workspace 6 output DP-5 DP-1 
-workspace 7 
-workspace 8
-workspace 9 
+workspace 2 output DP-1 DP-3 
+workspace 3 output DP-1 DP-3 
+workspace 4 output DP-1 DP-3 
+workspace 5 output DP-1 DP-3 
+workspace 6 output DP-1 DP-3 
+workspace 7 output DP-1 DP-3 
+workspace 8 output DP-1 DP-3 
+workspace 9 output DP-1 DP-3 
 workspace 10 output eDP-1
 
 # Input configuration
@@ -99,10 +94,12 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') /tmp/screenshot.png && ~/bin/screenshot.sh
 bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
 bindsym Shift+Print exec grim -g "$(slurp)" /tmp/screenshot.png && ~/bin/screenshot.sh 
-bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f -
+bindsym Control+Shift+Print exec grim -g "$(slurp)" - | swappy -f - -o /tmp/screenshot.png && $HOME/bin/screenshot.sh
 
 # Key bindings for launching apps
-bindsym $mod+n exec brave --allow-file-access-from-files
+#bindsym $mod+n exec brave --allow-file-access-from-files
+bindsym $mod+n exec firefox
+
 bindsym $mod+u [app_id="dropdown"] scratchpad show, resize set 50 ppt 50 ppt 
 bindsym $mod+c [app_id="calc"] scratchpad show, resize set 30 ppt 30 ppt
 bindsym $mod+m [app_id="music"] scratchpad show, resize set 50 ppt 50 ppt 
@@ -123,15 +120,10 @@ for_window [app_id="calc"] move scratchpad
 for_window [app_id="music"] floating enable 
 for_window [app_id="music"] move scratchpad
 
-# for_window [app_id="launcher"] floating enable, border pixel 10, resize set 50 ppt 50 ppt sticky enable
-
-#for_window [title=".*thinkorswim.*"] move workspace 1
-for_window [app_id="terminal"] move workspace 3
-
 # Assign apps to workspaces
-# assign [app_id="firefox"] workspace 2
-assign [app_id="weechat"] workspace 6
 assign [app_id="mutt"] workspace 5
+assign [app_id="weechat"] workspace 5
+
 
 ### Key bindings
 #
@@ -284,18 +276,13 @@ bar {
 # Launch on start
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
-exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000 -i $lock_bg' \
-         timeout 900 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000 -i $lock_bg'
+exec mako
 exec $term --class dropdown -e tmux new -s dropdown 
 exec $term --class terminal -e tmux new -s terminal
 exec $term --class calc -e python
 exec $term --class music -e ncmpcpp
-#exec firefox
-exec $term --class weechat -e weechat
+exec firefox
 exec $term --class mutt -e mutt
-# exec ~/bin/thinkorswim
+exec $term --class weechat -e weechat
 
 include /etc/sway/config.d/*
