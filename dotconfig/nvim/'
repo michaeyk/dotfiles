@@ -21,14 +21,14 @@ ls.snippets = {
 	all = {
   },
 
+  html = {},
+
   mail = {
-    s("br", {
-      t({"Best regards,", "Mike"})
-    }),
-    
-    s("kr", {
-      t({"Kindest regards,", "Michael Kim"})
-    })
+    s{{
+      trig = "date",
+      namr = "Date",
+      dscr = "Date in the form YYYY-MM-DD"
+    }}
   }
 
 }
