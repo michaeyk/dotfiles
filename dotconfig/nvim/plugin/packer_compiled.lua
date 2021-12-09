@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -75,6 +75,7 @@ _G.packer_plugins = {
     url = "https://github.com/romainl/Apprentice"
   },
   LuaSnip = {
+    config = { " require('config.luasnip') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -99,10 +100,20 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-calc",
+    url = "https://github.com/hrsh7th/cmp-calc"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-emoji"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-emoji",
+    url = "https://github.com/hrsh7th/cmp-emoji"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -119,6 +130,11 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -130,6 +146,7 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
+    config = { " require('config.gitsigns') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -145,6 +162,7 @@ _G.packer_plugins = {
     url = "https://github.com/nanotech/jellybeans.vim"
   },
   ["jupytext.vim"] = {
+    config = { " vim.g.jupytext_fmt = 'py' " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/jupytext.vim",
     url = "https://github.com/goerz/jupytext.vim"
@@ -160,11 +178,13 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind-nvim"
   },
   ["magma-nvim"] = {
+    config = { " require('config.magma') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/magma-nvim",
     url = "https://github.com/dccsillag/magma-nvim"
   },
   ["nvim-cmp"] = {
+    config = { " require('config.cmp') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -175,6 +195,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
+    config = { " require('config.treesitter') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -194,11 +215,6 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["papercolor-theme"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/papercolor-theme",
-    url = "https://github.com/NLKNguyen/papercolor-theme"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -210,6 +226,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/seoul256.vim"
   },
   ["telescope.nvim"] = {
+    config = { " require('config.telescope') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -225,6 +242,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-floaterm"] = {
+    config = { " require('config.floaterm') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
@@ -233,11 +251,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-github-colorscheme"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-github-colorscheme",
-    url = "https://github.com/endel/vim-github-colorscheme"
   },
   ["vim-gnupg"] = {
     loaded = true,
@@ -265,6 +278,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-surround"
   },
   vimwiki = {
+    config = { " require('config.vimwiki') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
@@ -272,6 +286,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('config.treesitter') 
+time([[Config for nvim-treesitter]], false)
+-- Config for: magma-nvim
+time([[Config for magma-nvim]], true)
+ require('config.magma') 
+time([[Config for magma-nvim]], false)
+-- Config for: vimwiki
+time([[Config for vimwiki]], true)
+ require('config.vimwiki') 
+time([[Config for vimwiki]], false)
+-- Config for: jupytext.vim
+time([[Config for jupytext.vim]], true)
+ vim.g.jupytext_fmt = 'py' 
+time([[Config for jupytext.vim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+ require('config.gitsigns') 
+time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+ require('config.telescope') 
+time([[Config for telescope.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+ require('config.luasnip') 
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+ require('config.cmp') 
+time([[Config for nvim-cmp]], false)
+-- Config for: vim-floaterm
+time([[Config for vim-floaterm]], true)
+ require('config.floaterm') 
+time([[Config for vim-floaterm]], false)
 if should_profile then save_profiles() end
 
 end)
