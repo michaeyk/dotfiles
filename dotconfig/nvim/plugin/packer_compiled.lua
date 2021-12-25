@@ -167,6 +167,11 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/jupytext.vim",
     url = "https://github.com/goerz/jupytext.vim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lightline.vim"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/lightline.vim",
@@ -286,14 +291,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('config.treesitter') 
-time([[Config for nvim-treesitter]], false)
--- Config for: magma-nvim
-time([[Config for magma-nvim]], true)
- require('config.magma') 
-time([[Config for magma-nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+ require('config.telescope') 
+time([[Config for telescope.nvim]], false)
+-- Config for: vim-floaterm
+time([[Config for vim-floaterm]], true)
+ require('config.floaterm') 
+time([[Config for vim-floaterm]], false)
 -- Config for: vimwiki
 time([[Config for vimwiki]], true)
  require('config.vimwiki') 
@@ -306,10 +311,10 @@ time([[Config for jupytext.vim]], false)
 time([[Config for gitsigns.nvim]], true)
  require('config.gitsigns') 
 time([[Config for gitsigns.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
- require('config.telescope') 
-time([[Config for telescope.nvim]], false)
+-- Config for: magma-nvim
+time([[Config for magma-nvim]], true)
+ require('config.magma') 
+time([[Config for magma-nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
  require('config.luasnip') 
@@ -318,10 +323,10 @@ time([[Config for LuaSnip]], false)
 time([[Config for nvim-cmp]], true)
  require('config.cmp') 
 time([[Config for nvim-cmp]], false)
--- Config for: vim-floaterm
-time([[Config for vim-floaterm]], true)
- require('config.floaterm') 
-time([[Config for vim-floaterm]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+ require('config.treesitter') 
+time([[Config for nvim-treesitter]], false)
 if should_profile then save_profiles() end
 
 end)

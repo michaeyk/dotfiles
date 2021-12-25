@@ -8,7 +8,7 @@ end
 vim.cmd [[
 augroup Packer
 autocmd!
-autocmd BufWritePost plugins.lua PackerCompile
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
 augroup end
 ]]
 
@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
     config = [[ require('config.magma') ]],
     run = ':UpdateRemotePlugins' 
   }
-
+  
   -- Colorschemes
   use 'joshdick/onedark.vim' -- Theme inspired by Atom
   use 'jnurmine/Zenburn'
@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
   use 'w0ng/vim-hybrid'
   use 'junegunn/seoul256.vim'
   use {'folke/tokyonight.nvim', branch = 'main'}
+  use 'rebelot/kanagawa.nvim'
 
   use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines

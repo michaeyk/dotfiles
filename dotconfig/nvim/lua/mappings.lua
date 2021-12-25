@@ -37,4 +37,5 @@ vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', {noremap = true})
 -- ESC to insert mode in terminal
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
-
+-- Open vimrc in split
+vim.api.nvim_set_keymap('n', '<Leader>v', ':vsp $MYVIMRC<CR> | :cd ~/.config/nvim<CR>', {noremap = true})
