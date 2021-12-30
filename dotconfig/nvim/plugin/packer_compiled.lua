@@ -69,13 +69,7 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  Apprentice = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/Apprentice",
-    url = "https://github.com/romainl/Apprentice"
-  },
   LuaSnip = {
-    config = { " require('config.luasnip') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -84,11 +78,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/Zenburn",
     url = "https://github.com/jnurmine/Zenburn"
-  },
-  badwolf = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/badwolf",
-    url = "https://github.com/sjl/badwolf"
   },
   ["calendar-vim"] = {
     loaded = true,
@@ -99,11 +88,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-calc"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/cmp-calc",
-    url = "https://github.com/hrsh7th/cmp-calc"
   },
   ["cmp-cmdline"] = {
     loaded = true,
@@ -145,54 +129,31 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["gitsigns.nvim"] = {
-    config = { " require('config.gitsigns') " },
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["jellybeans.vim"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
-    url = "https://github.com/nanotech/jellybeans.vim"
-  },
-  ["jupytext.vim"] = {
-    config = { " vim.g.jupytext_fmt = 'py' " },
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/jupytext.vim",
-    url = "https://github.com/goerz/jupytext.vim"
-  },
   ["kanagawa.nvim"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
-  ["lightline.vim"] = {
+  ["null-ls.nvim"] = {
     loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/lightline.vim",
-    url = "https://github.com/itchyny/lightline.vim"
-  },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
-    url = "https://github.com/onsails/lspkind-nvim"
-  },
-  ["magma-nvim"] = {
-    config = { " require('config.magma') " },
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/magma-nvim",
-    url = "https://github.com/dccsillag/magma-nvim"
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    config = { " require('config.cmp') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-ipy"] = {
+    config = { " require('user.nvim-ipy') " },
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-ipy",
+    url = "https://github.com/bfredl/nvim-ipy"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -200,15 +161,14 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { " require('config.treesitter') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-treesitter-textobjects"] = {
+  ["nvim-ts-rainbow"] = {
     loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["onedark.vim"] = {
     loaded = true,
@@ -225,13 +185,17 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
   ["seoul256.vim"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/seoul256.vim",
     url = "https://github.com/junegunn/seoul256.vim"
   },
   ["telescope.nvim"] = {
-    config = { " require('config.telescope') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -247,7 +211,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-floaterm"] = {
-    config = { " require('config.floaterm') " },
+    config = { " require('user.floaterm') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
@@ -267,11 +231,6 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-gutentags",
     url = "https://github.com/ludovicchabant/vim-gutentags"
   },
-  ["vim-hybrid"] = {
-    loaded = true,
-    path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-hybrid",
-    url = "https://github.com/w0ng/vim-hybrid"
-  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
@@ -283,7 +242,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-surround"
   },
   vimwiki = {
-    config = { " require('config.vimwiki') " },
+    config = { " require('user.vimwiki') " },
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
@@ -291,42 +250,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
- require('config.telescope') 
-time([[Config for telescope.nvim]], false)
+-- Config for: nvim-ipy
+time([[Config for nvim-ipy]], true)
+ require('user.nvim-ipy') 
+time([[Config for nvim-ipy]], false)
 -- Config for: vim-floaterm
 time([[Config for vim-floaterm]], true)
- require('config.floaterm') 
+ require('user.floaterm') 
 time([[Config for vim-floaterm]], false)
 -- Config for: vimwiki
 time([[Config for vimwiki]], true)
- require('config.vimwiki') 
+ require('user.vimwiki') 
 time([[Config for vimwiki]], false)
--- Config for: jupytext.vim
-time([[Config for jupytext.vim]], true)
- vim.g.jupytext_fmt = 'py' 
-time([[Config for jupytext.vim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
- require('config.gitsigns') 
-time([[Config for gitsigns.nvim]], false)
--- Config for: magma-nvim
-time([[Config for magma-nvim]], true)
- require('config.magma') 
-time([[Config for magma-nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
- require('config.luasnip') 
-time([[Config for LuaSnip]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
- require('config.cmp') 
-time([[Config for nvim-cmp]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
- require('config.treesitter') 
-time([[Config for nvim-treesitter]], false)
 if should_profile then save_profiles() end
 
 end)

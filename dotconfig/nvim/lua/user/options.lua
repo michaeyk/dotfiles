@@ -4,6 +4,10 @@ vim.o.hlsearch = false
 vim.wo.relativenumber = true
 -- Do not save when switching buffers (note: this is now a default on master)
 vim.o.hidden = true
+-- Disable swap files
+
+-- cmp option
+vim.opt.completeopt = { 'menuone', 'noselect' }
 -- Enable mouse mode
 vim.o.mouse = 'a'
 -- Don't scroll all the way to the top/bottom
@@ -30,12 +34,11 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme (order is important here)
 vim.o.termguicolors = true
-vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme kanagawa]]
+-- vim.g.onedark_terminal_italics = 2
 
 -- Set statusbar
 vim.g.lightline = {
-  colorscheme = 'onedark',
+  colorscheme = 'tokyonight',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }
@@ -65,5 +68,4 @@ vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
 vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_char_highlight = 'LineNr'
 vim.g.indent_blankline_show_trailing_blankline_indent = false
-
 
