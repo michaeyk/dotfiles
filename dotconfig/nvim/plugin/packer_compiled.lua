@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["nnn.vim"] = {
+    loaded = true,
+    path = "/home/mike/.local/share/nvim/site/pack/packer/start/nnn.vim",
+    url = "https://github.com/mcchrish/nnn.vim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/mike/.local/share/nvim/site/pack/packer/start/null-ls.nvim",

@@ -29,6 +29,7 @@ return packer.startup(function(use)
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'jamessan/vim-gnupg'
   use { 'voldikss/vim-floaterm', config = [[ require('user.floaterm') ]] }
+  use 'mcchrish/nnn.vim'
 
   -- vimwiki
   use { 'vimwiki/vimwiki', config = [[ require('user.vimwiki') ]] }
