@@ -28,8 +28,13 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'jamessan/vim-gnupg'
-  use { 'voldikss/vim-floaterm', config = [[ require('user.floaterm') ]] }
-  use 'mcchrish/nnn.vim'
+  use 'akinsho/toggleterm.nvim'
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
+
+  -- nvim-tree
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
 
   -- vimwiki
   use { 'vimwiki/vimwiki', config = [[ require('user.vimwiki') ]] }
@@ -37,6 +42,7 @@ return packer.startup(function(use)
 
   -- Interact with Jupyter notebooks
   use { 'bfredl/nvim-ipy', config = [[ require('user.nvim-ipy') ]] }
+  use { 'goerz/jupytext.vim', config = [[ vim.g.jupytext_fmt = 'py' ]] }
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp' -- completion plugin

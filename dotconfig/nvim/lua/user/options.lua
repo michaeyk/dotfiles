@@ -44,7 +44,7 @@ vim.g.lightline = {
 }
 
 -- Set spelling
-vim.cmd [[ autocmd FileType latex,tex,text,mail setlocal spell ]]
+vim.cmd [[ autocmd FileType latex,tex,text,mail,markdown setlocal spell ]]
 
 -- Highlight on yank
 vim.cmd [[

@@ -1,5 +1,5 @@
 vim.cmd [[
-  command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True --style=monokai")
+  command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True --style=gruvbox-light")
 ]]
 
 vim.g.ipy_celldef = '^# %%'

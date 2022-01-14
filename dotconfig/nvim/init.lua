@@ -7,6 +7,9 @@ require 'user.lsp'
 require 'user.luasnip'
 require 'user.telescope'
 require 'user.treesitter'
+require 'user.nvim-tree'
+require 'user.toggleterm'
+require 'user.bufferline'
 
 
 

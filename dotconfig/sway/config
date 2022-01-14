@@ -12,7 +12,8 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term kitty
+# set $term kitty
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -277,8 +278,8 @@ bar {
 exec_always "$HOME/.config/mako/launch.sh"
 exec rot8
 exec mako
-exec $term --class dropdown -e tmux new -s dropdown 
-exec $term --class terminal -e tmux new -s terminal
+exec $term --class dropdown 
+exec $term --class terminal 
 exec $term --class calc -e python
 exec $term --class music -e ncmpcpp
 exec firefox

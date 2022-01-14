@@ -29,7 +29,7 @@ vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', {noremap = t
 vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {noremap = true, silent = true})
 
 -- Open explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':Lex 30<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
@@ -64,4 +64,5 @@ vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Open vimrc in split
-vim.api.nvim_set_keymap('n', '<Leader>v', ':vsp $MYVIMRC<CR> | :cd ~/.config/nvim<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>ev', ':vsp $MYVIMRC<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>sv', ':source $MYVIMRC<CR>', {noremap = true})
