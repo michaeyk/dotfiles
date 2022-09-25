@@ -21,7 +21,7 @@ end
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/plenary.nvim' 
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary'
@@ -32,13 +32,9 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
 
-  -- nvim-tree
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
-
-  -- vimwiki
-  use { 'vimwiki/vimwiki', config = [[ require('user.vimwiki') ]] }
-  use 'mattn/calendar-vim'
+  -- -- nvim-tree
+  -- use 'kyazdani42/nvim-tree.lua'
+  -- use 'kyazdani42/nvim-web-devicons'
 
   -- Interact with Jupyter notebooks
   use { 'bfredl/nvim-ipy', config = [[ require('user.nvim-ipy') ]] }
@@ -59,6 +55,13 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = {
+  --     'kyazdani42/nvim-web-devicons', -- optional, for file icons
+  --   },
+  -- }
+
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
@@ -72,7 +75,18 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'p00f/nvim-ts-rainbow'
+
+  -- Markdown
+  -- install without yarn or npm
+  use ({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+      vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreviewToggle<CR>', { noremap = true }),
+  })
+  use { 'preservim/vim-markdown', config = [[ vim.g.vim_markdown_folding_disabled = 1 ]] }
+  use 'jkramer/vim-checkbox'
 
   -- Colorschemes
   use 'joshdick/onedark.vim'
@@ -80,6 +94,7 @@ return packer.startup(function(use)
   use 'junegunn/seoul256.vim'
   use {'folke/tokyonight.nvim', branch = 'main'}
   use 'rebelot/kanagawa.nvim'
+  use { "ellisonleao/gruvbox.nvim" }
 
 	if packer_bootstrap then
     require('packer').sync()

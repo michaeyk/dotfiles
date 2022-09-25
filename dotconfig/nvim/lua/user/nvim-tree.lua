@@ -42,7 +42,6 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -99,7 +98,7 @@ nvim_tree.setup {
   },
   quit_on_open = 0,
   git_hl = 1,
-  disable_window_picker = 0,
+  disable_window_picker = 1,
   root_folder_modifier = ":t",
   show_icons = {
     git = 1,
