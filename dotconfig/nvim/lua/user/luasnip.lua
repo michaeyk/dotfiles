@@ -101,6 +101,35 @@ local take_profit = function(index)
   end, {3,4,5,6,7,8})
 end 
 
+local reward_risk = function(index)
+  return f(function(arg)
+    local position = arg[1][1]
+    local supply_distal = tonumber(arg[2][1]) or 0.0
+    local supply_proximal = tonumber(arg[3][1]) or 0.0
+    local demand_proximal = tonumber(arg[4][1]) or 0.0
+    local demand_distal = tonumber(arg[5][1]) or 0.0
+    local target = tonumber(arg[6][1]) or 0.0
+    local ror = 0.0
+     
+    if(position == "Long")
+    then
+      width = demand_proximal - demand_distal
+      entry = demand_proximal + (width * 0.10)
+      stop = demand_distal - (width * 0.20)
+      tp = ((target - demand_proximal) * 0.80) + demand_proximal
+      ror = (tp - entry) / (entry - stop)
+    else
+      width = supply_distal - supply_proximal
+      entry = supply_proximal - (width * 0.10)
+      stop = supply_distal + (width * 0.20)
+      tp = supply_proximal - ((supply_proximal - target) * 0.80) 
+      ror = (entry - tp) / (stop - entry)
+    end
+      
+    return string.format("%.2f", ror)
+  end, {3,4,5,6,7,8})
+end 
+
 ls.add_snippets(nil, {
     all = {
     },
@@ -144,9 +173,11 @@ ls.add_snippets(nil, {
       {}
       ### Take Profit (80% of Target):
       {}
+      ### Reward/Risk:
+      {}
       ### Outcome:
-      * [ ] Target Reached
-      * [ ] Stopped  
+      - [ ] Target Reached
+      - [ ] Stopped  
       ### Notes: 
       ]], 
       { 
@@ -162,6 +193,7 @@ ls.add_snippets(nil, {
         stop(index),
         i(8),
         take_profit(index),
+        reward_risk(index),
       }))
     }, 
 })

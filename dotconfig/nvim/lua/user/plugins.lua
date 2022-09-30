@@ -86,7 +86,7 @@ return packer.startup(function(use)
       vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreviewToggle<CR>', { noremap = true }),
   })
   use { 'preservim/vim-markdown', config = [[ vim.g.vim_markdown_folding_disabled = 1 ]] }
-  use 'jkramer/vim-checkbox'
+  use 'jkramer/vim-checkbox' -- <leader> tt to toggle
 
   -- Colorschemes
   use 'joshdick/onedark.vim'
