@@ -7,7 +7,7 @@ vim.o.hidden = true
 -- Disable swap files
 
 -- cmp option
-vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 -- Enable mouse mode
 vim.o.mouse = 'a'
 -- Don't scroll all the way to the top/bottom
