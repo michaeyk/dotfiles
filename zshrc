@@ -52,7 +52,7 @@ bindkey '' autosuggest-accept
 
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
-alias at=alacritty-themes
+alias themes=alacritty-themes
 alias more=less
 alias gc=gcalcli
 alias weather="curl wttr.in/80108"
@@ -67,7 +67,7 @@ export LC_ALL=en_US.UTF-8
 export LANG="$LC_ALL" 
 
 export MAILCONF=/home/mike/.config/mutt
-export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgur'
+export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgview;c:mp3conv'
 export NNN_COLORS="2136"
 export NNN_BMS="d:~/Downloads;w:~/Pictures/Wal"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"

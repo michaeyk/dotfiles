@@ -281,7 +281,7 @@ exec mako
 exec $term --class dropdown 
 exec $term --class terminal 
 exec $term --class calc -e python
-exec $term --class music -e ncmpcpp
+exec $term --class music -e spt
 exec firefox
 exec $term --class mutt -e mutt
 exec $term --class weechat -e weechat

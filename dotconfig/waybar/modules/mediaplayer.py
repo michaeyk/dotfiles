@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 import argparse
 import logging
@@ -38,6 +39,8 @@ def on_metadata(player, metadata, manager):
     elif player.get_artist() != '' and player.get_title() != '':
         track_info = '{artist} - {title}'.format(artist=player.get_artist(),
                                                  title=player.get_title())
+    else:
+        track_info = player.get_title()
 
     if player.props.status != 'Playing' and track_info:
         track_info = ' ' + track_info
@@ -77,7 +80,7 @@ def signal_handler(sig, frame):
 def parse_arguments():
     parser = argparse.ArgumentParser()
 
-    # Increase verbosity with every occurance of -v
+    # Increase verbosity with every occurrence of -v
     parser.add_argument('-v', '--verbose', action='count', default=0)
 
     # Define for which player we're listening
@@ -108,6 +111,7 @@ def main():
 
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
     for player in manager.props.player_names:
         if arguments.player is not None and arguments.player != player.name:

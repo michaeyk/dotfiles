@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
 
-    "modules-left": [ "clock", "idle_inhibitor", "sway/workspaces", "mpd"],
+    "modules-left": [ "clock", "idle_inhibitor", "sway/workspaces", "custom/spotify"],
     "modules-center": ["sway/window"],
     "modules-right": ["custom/crypto", "cpu", "memory", "temperature", "pulseaudio", "bluetooth", "network", "battery", "tray"],
 
@@ -39,8 +39,13 @@
         },
         "on-click": "blueberry"
     },    
-    "mpd": {
-        "format": "{artist} - {title}"
+    "custom/spotify": {
+    "exec": "/usr/bin/python3 /home/mike/.config/waybar/modules/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
     },
     "sway/language": {
         "format": "<big></big> {}",
