@@ -25,7 +25,7 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary'
-  use 'tpope/vim-surround'
+  use 'machakann/vim-sandwich'
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'jamessan/vim-gnupg'
   use 'akinsho/toggleterm.nvim'
