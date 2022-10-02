@@ -64,5 +64,5 @@ vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', {noremap = true})
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 
 -- Open vimrc in split
-vim.api.nvim_set_keymap('n', '<Leader>ev', ':vsp $MYVIMRC<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>ev', ':e $MYVIMRC<CR> :cd $HOME/.config/nvim<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>sv', ':source $MYVIMRC<CR>', {noremap = true})

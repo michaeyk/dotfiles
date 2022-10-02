@@ -32,9 +32,9 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
 
-  -- -- nvim-tree
-  -- use 'kyazdani42/nvim-tree.lua'
-  -- use 'kyazdani42/nvim-web-devicons'
+  -- nvim-tree
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
 
   -- Interact with Jupyter notebooks
   use { 'bfredl/nvim-ipy', config = [[ require('user.nvim-ipy') ]] }
