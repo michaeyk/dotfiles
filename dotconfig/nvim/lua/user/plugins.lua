@@ -24,8 +24,13 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' 
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary'
   use 'machakann/vim-sandwich'
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'jamessan/vim-gnupg'
   use 'akinsho/toggleterm.nvim'
@@ -35,6 +40,13 @@ return packer.startup(function(use)
   -- nvim-tree
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
+
+  -- cheat.sh
+  use 'RishabhRD/popfix'
+  use {
+    'RishabhRD/nvim-cheat.sh',
+     vim.api.nvim_set_keymap('n', '<Leader>ch', ':Cheat<CR>', { noremap = true }),
+  }
 
   -- Interact with Jupyter notebooks
   use { 'bfredl/nvim-ipy', config = [[ require('user.nvim-ipy') ]] }
@@ -54,13 +66,6 @@ return packer.startup(function(use)
   -- snippets
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
-
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = {
-  --     'kyazdani42/nvim-web-devicons', -- optional, for file icons
-  --   },
-  -- }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
