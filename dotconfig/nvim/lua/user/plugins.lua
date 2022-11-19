@@ -24,6 +24,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' 
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
+  use 'lambdalisue/suda.vim'
   use 'machakann/vim-sandwich'
   use {
       'numToStr/Comment.nvim',
@@ -45,7 +46,7 @@ return packer.startup(function(use)
   use 'RishabhRD/popfix'
   use {
     'RishabhRD/nvim-cheat.sh',
-     vim.api.nvim_set_keymap('n', '<Leader>ch', ':Cheat<CR>', { noremap = true }),
+     vim.api.nvim_set_keymap('n', '<Leader>kk', ':Cheat<CR>', { noremap = true }),
   }
 
   -- Interact with Jupyter notebooks
@@ -92,6 +93,8 @@ return packer.startup(function(use)
   })
   use { 'preservim/vim-markdown', config = [[ vim.g.vim_markdown_folding_disabled = 1 ]] }
   use 'jkramer/vim-checkbox' -- <leader> tt to toggle
+  use 'vim-pandoc/vim-pandoc'
+  use { 'epwalsh/obsidian.nvim', config = [[ require('user.obsidian') ]] }
 
   -- Colorschemes
   use 'joshdick/onedark.vim'

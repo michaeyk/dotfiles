@@ -1,9 +1,0 @@
-anchor=bottom-right
-font=IBM Plex Mono 10
-background-color=#0F111ACC
-height=150
-margin=0,30,30
-padding=15
-border-size=0
-border-color=#00000000
-default-timeout=5000

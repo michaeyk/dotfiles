@@ -106,7 +106,6 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        spell = "[Spell]",
         emoji = "[Emoji]",
       })[entry.source.name]
       return vim_item
@@ -118,7 +117,6 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    -- { name = "spell" },
     { name = "emoji" },
   },
   confirm_opts = {
