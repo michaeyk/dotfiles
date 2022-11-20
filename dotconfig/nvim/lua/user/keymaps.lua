@@ -16,6 +16,12 @@ vim.api.nvim_set_keymap('n', '<Leader>sl', ':botright vnew<CR>', {noremap = fals
 vim.api.nvim_set_keymap('n', '<Leader>sk', ':topleft new<CR>', {noremap = false})
 vim.api.nvim_set_keymap('n', '<Leader>sj', ':botright new<CR>', {noremap = false})
 
+-- Easy window switch
+vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', {noremap = false})
+vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>j', {noremap = false})
+vim.api.nvim_set_keymap('n', '<C-K>', '<C-W>k', {noremap = false})
+vim.api.nvim_set_keymap('n', '<C-L>', '<C-W>l', {noremap = false})
+
 -- Resize with arrows
 vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', {noremap = true, silent = true})
@@ -44,6 +50,10 @@ vim.api.nvim_set_keymap('n', '<Leader>yy', '"+yy', {noremap = true})
 -- Move between buffers
 vim.api.nvim_set_keymap('n', '<S-h>', ':bprevious<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true, silent = true})
+
+-- Move blocks of code 
+vim.api.nvim_set_keymap('v', '<S-j>', ":m '>+1<CR>gv", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<S-k>', ":m '<-2<CR>gv", {noremap = true, silent = true})
 
 -- ,cd to change working directory to current file directory
 vim.api.nvim_set_keymap('n', '<Leader>cd', ':cd %:p:h<CR>', {noremap = true, silent = true})
