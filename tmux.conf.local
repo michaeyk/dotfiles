@@ -297,3 +297,4 @@ tmux_conf_copy_to_os_clipboard=false
 # move status line to top
 #set -g status-position top
 bind a last-window        # move to last active window
+set -as terminal-overrides ',xterm*:RGB'

@@ -69,13 +69,14 @@ export LANG="$LC_ALL"
 export MAILCONF=/home/mike/.config/mutt
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgview;c:mp3conv'
 export NNN_COLORS="2136"
-export NNN_BMS="d:~/Downloads;w:~/Pictures/Wal"
+export NNN_BMS="d:~/Downloads;w:~/Pictures"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
-export BROWSER=firefox
+export BROWSER=brave
 export GPGKEY=6271B2D8
+export GPG_TTY=`tty`
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
 $HOME/.gem/ruby/2.7.0/bin:$PATH"
@@ -89,3 +90,5 @@ eval `dircolors ~/.dircolors`
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# pywal
+(cat ~/.cache/wal/sequences &)
