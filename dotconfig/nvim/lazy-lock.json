@@ -45,5 +45,6 @@
   "vim-pandoc": { "branch": "master", "commit": "7dbda1c885c4c5dd3f865aa29e1b82167663aeec" },
   "vim-rhubarb": { "branch": "master", "commit": "cad60fe382f3f501bbb28e113dfe8c0de6e77c75" },
   "vim-sandwich": { "branch": "master", "commit": "c5a2cc438ce6ea2005c556dc833732aa53cae21a" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" }
 }

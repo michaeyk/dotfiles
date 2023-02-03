@@ -19,6 +19,7 @@ return {
   'tpope/vim-unimpaired',
   'tpope/vim-rhubarb',
   'lambdalisue/suda.vim',
+  'christoomey/vim-tmux-navigator',
   'machakann/vim-sandwich',
   'ludovicchabant/vim-gutentags', -- Automatic tags management
   'jamessan/vim-gnupg',
