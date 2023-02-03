@@ -47,6 +47,13 @@ return {
     },
   },
   {
+    "ray-x/lsp_signature.nvim",
+    config = {
+      toggle_key = '<C-s>',
+      select_signature_key = '<C-n>',
+    },
+  },
+  {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     config = {
