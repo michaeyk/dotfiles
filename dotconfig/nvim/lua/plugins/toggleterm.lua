@@ -5,8 +5,8 @@ return {
   config = {
     size = 20,
     open_mapping = [[<c-\>]],
-    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts),
-    vim.keymap.set('t', 'kj', [[<C-\><C-n>]], opts),
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]]),
+    vim.keymap.set('t', 'kj', [[<C-\><C-n>]]),
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,

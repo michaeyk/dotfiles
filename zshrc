@@ -15,41 +15,27 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode virtualenv zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git vi-mode virtualenv zsh-syntax-highlighting fzf-tab zsh-autosuggestions)
 
+# fzf-tab 
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_USE_ASYNC=1
-
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-# Disable hostname completion
-zstyle ':completion:*' hosts off
+bindkey '^l' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-bindkey '' autosuggest-accept 
-
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
 alias themes=alacritty-themes

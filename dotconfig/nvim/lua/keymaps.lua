@@ -24,12 +24,6 @@ vim.api.nvim_set_keymap('n', '<Leader>sl', ':botright vnew<CR>', { noremap = fal
 vim.api.nvim_set_keymap('n', '<Leader>sk', ':topleft new<CR>', { noremap = false })
 vim.api.nvim_set_keymap('n', '<Leader>sj', ':botright new<CR>', { noremap = false })
 
--- Easy window switch - plugin does this now
--- vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', { noremap = false })
--- vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>j', { noremap = false })
--- vim.api.nvim_set_keymap('n', '<C-K>', '<C-W>k', { noremap = false })
--- vim.api.nvim_set_keymap('n', '<C-L>', '<C-W>l', { noremap = false })
-
 -- Resize with arrows
 vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', { noremap = true, silent = true })
