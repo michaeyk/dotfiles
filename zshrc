@@ -7,7 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -33,9 +33,8 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-bindkey '^l' autosuggest-accept
+# bindkey '^l' autosuggest-accept
 
-source $ZSH/oh-my-zsh.sh
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
 alias themes=alacritty-themes
@@ -78,3 +77,5 @@ eval `dircolors ~/.dircolors`
 
 # pywal
 (cat ~/.cache/wal/sequences &)
+
+source $ZSH/oh-my-zsh.sh
