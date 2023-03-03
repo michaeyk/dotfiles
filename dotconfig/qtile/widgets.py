@@ -64,9 +64,10 @@ widgets = [
     widget.TextBox(text="", padding=0, fontsize=30, foreground=catppuccin["teal"]),
     widget.PulseVolume(
         fmt="墳 {}",
-        volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -5%",
-        volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        mute_command="pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        volume_up_command= 'amixer -q -D pulse set Master 2%+'.split(),
+        volume_down_command= 'amixer -q -D pulse set Master 2%-'.split(),
+        mute_command= 'amixer -q -D pulse set Master toggle'.split(),
+        get_volume_command= 'amixer -D pulse get Master'.split(),
         limit_max_volume=True,
         mouse_callbacks={"Button2": lazy.spawn("/usr/bin/pavucontrol")},
         background=catppuccin["teal"],
