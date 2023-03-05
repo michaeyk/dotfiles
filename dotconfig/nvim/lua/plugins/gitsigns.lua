@@ -8,5 +8,5 @@ return {
       topdelete = { hl = 'GitGutterDelete', text = '‾' },
       changedelete = { hl = 'GitGutterChange', text = '~' },
     },
-  }, 
+  },
 }

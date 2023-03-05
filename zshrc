@@ -33,19 +33,22 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# bindkey '^l' autosuggest-accept
+# oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
+# bindkey '^ ' autosuggest-accept 
 
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
 alias themes=alacritty-themes
+alias ls=exa
 alias more=less
-alias gc=gcalcli
 alias weather="curl wttr.in/80108"
 alias ssh="TERM=screen-256color ssh"
 alias nnn='nnn -ea'
 alias gcob='git branch | fzf | xargs git checkout'
 alias lg=lazygit
 alias cheat=cht.sh
+# oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
+#alias gc=gcalcli
 
 #export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.UTF-8 

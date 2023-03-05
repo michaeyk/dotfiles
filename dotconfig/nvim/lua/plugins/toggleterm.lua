@@ -2,7 +2,7 @@ return {
   "akinsho/toggleterm.nvim",
   cmd = "ToggleTerm",
   lazy = false,
-  config = {
+  opts = {
     size = 20,
     open_mapping = [[<c-\>]],
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]]),
@@ -14,7 +14,8 @@ return {
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    direction = "float",
+    -- direction = "float",
+    direction = "horizontal",
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {

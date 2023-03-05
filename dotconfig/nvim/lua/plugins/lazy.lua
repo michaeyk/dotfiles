@@ -27,6 +27,10 @@ return {
   'jkramer/vim-checkbox', -- <leader> tt to toggle
   'vim-pandoc/vim-pandoc',
   {
+    'jpalardy/vim-slime',
+    config = function() vim.g.slime_target = "neovim" end
+  },
+  {
     'glacambre/firenvim',
     build = function() vim.fn['firenvim#install'](0) end,
   },

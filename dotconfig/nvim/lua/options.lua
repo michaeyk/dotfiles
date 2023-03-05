@@ -2,9 +2,8 @@
 vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.relativenumber = true
--- Do not save when switching buffers (note: this is now a default on master)
-vim.o.hidden = true
--- Disable swap files
+-- Write on buffer change
+vim.o.autowriteall = true
 
 -- cmp option
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
