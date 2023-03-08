@@ -2,8 +2,8 @@ return {
   "bfredl/nvim-ipy",
   lazy = false,
   keys = {
-    { "<leader>jc", "<Plug>(IPy-RunCell)", mode = { "n" } },
-    { "<leader>ja", "<Plug>(IPy-RunAll)", mode = { "n" } },
+    { "<leader>rc", "<Plug>(IPy-RunCell)", mode = { "n" } },
+    { "<leader>ra", "<Plug>(IPy-RunAll)", mode = { "n" } },
     { "<leader>nc", "i# %%<CR>", mode = { "n" } },
     { "<leader>jk", ":IPython --existing --no-window<CR>", mode = { "n" } },
   },

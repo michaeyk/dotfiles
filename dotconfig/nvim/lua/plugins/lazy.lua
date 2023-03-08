@@ -26,7 +26,10 @@ return {
   'vim-pandoc/vim-pandoc',
   {
     'jpalardy/vim-slime',
-    config = function() vim.g.slime_target = "neovim" end
+    config = function()
+      -- echo &channel to get job-id of terminal
+      vim.g.slime_target = "neovim"
+    end
   },
   {
     'glacambre/firenvim',
