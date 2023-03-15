@@ -4,7 +4,7 @@ from libqtile.backend.wayland.inputs import InputConfig
 from keys import mod
 
 wl_input_rules = {
-    "type:touchpad": InputConfig(tap=True, tap_button_map="lrm")
+    "type:touchpad": InputConfig(tap=True, tap_button_map="lrm", dwt=True)
 }
 
 mouse = [
@@ -26,3 +26,9 @@ mouse = [
         lazy.window.bring_to_front()
     )
 ]
+
+# # touchscreen
+# input "1386:18670:Wacom_HID_48EE_Pen" {
+#   map_to_output eDP-1
+# }
+

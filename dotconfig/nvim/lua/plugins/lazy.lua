@@ -14,8 +14,6 @@ return {
   'jnurmine/Zenburn',
   'junegunn/seoul256.vim',
   'rebelot/kanagawa.nvim',
-
-  'tpope/vim-fugitive',
   'tpope/vim-unimpaired',
   'tpope/vim-rhubarb',
   'lambdalisue/suda.vim',

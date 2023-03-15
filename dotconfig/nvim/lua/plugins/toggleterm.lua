@@ -4,9 +4,9 @@ return {
   lazy = false,
   opts = {
     size = 20,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<Leader>u]],
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]]),
-    vim.keymap.set('t', 'kj', [[<C-\><C-n>]]),
+    -- vim.keymap.set('t', 'kj', [[<C-\><C-n>]]),
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -14,8 +14,8 @@ return {
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    -- direction = "float",
-    direction = "horizontal",
+    direction = "float",
+    -- direction = "horizontal",
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
