@@ -2,7 +2,7 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree", mode = "n" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
