@@ -2,6 +2,9 @@ return {
   "akinsho/toggleterm.nvim",
   cmd = "ToggleTerm",
   lazy = false,
+  keys = {
+    { "<leader>lg", "<cmd>TermExec cmd=\"lazygit\"<cr>", desc = "lazygit", mode = "n" },
+  },
   opts = {
     size = 20,
     open_mapping = [[<c-u>]],
@@ -25,5 +28,5 @@ return {
         background = "Normal",
       },
     },
-  }
+  },
 }
