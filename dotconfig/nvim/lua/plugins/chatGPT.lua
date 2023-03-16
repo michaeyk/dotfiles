@@ -2,8 +2,8 @@ return {
   "jackMort/ChatGPT.nvim",
   cmd = "ChatGPT",
   keys = {
-    { "<leader>c", "<cmd>ChatGPT<cr>", desc = "NeoTree" },
-    { "<leader>aa", "<cmd>ChatGPTActAs<cr>", desc = "NeoTree" },
+    { "<leader>c", "<cmd>ChatGPT<cr>", desc = "ChatGPT", mode = "n" },
+    { "<leader>aa", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT", mode = "n" },
   },
   dependencies = {
     "MunifTanjim/nui.nvim",

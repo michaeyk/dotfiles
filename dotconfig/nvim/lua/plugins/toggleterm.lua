@@ -4,9 +4,8 @@ return {
   lazy = false,
   opts = {
     size = 20,
-    open_mapping = [[<Leader>u]],
+    open_mapping = [[<c-u>]],
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]]),
-    -- vim.keymap.set('t', 'kj', [[<C-\><C-n>]]),
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,

@@ -24,6 +24,7 @@ return {
   'moll/vim-bbye',
   'jkramer/vim-checkbox', -- <leader> tt to toggle
   'vim-pandoc/vim-pandoc',
+  'tpope/vim-fugitive',
   {
     'jpalardy/vim-slime',
     config = function()
