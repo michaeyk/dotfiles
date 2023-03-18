@@ -1,0 +1,36 @@
+[user]
+	email = michaeyk@gmail.com
+	name = Michael Kim 
+  signingkey = C91A48E07C6F5BB9
+[core]
+	pager = delta
+	editor = nvim
+	excludesfile = /home/mike/.config/git/gitignore_global
+[credential]
+	helper = cache
+[commit]
+	template = /home/mike/.config/git/commit_template
+	verbose = true
+	gpgSign = true
+[pull]
+	rebase = false
+[gpg]
+	program = /usr/bin/gpg
+[tag]
+	gpgSign = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = side-by-side line-numbers decorations
+	navigate = true
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[interactive]
+	diffFilter = delta --color-only
+[mergetool]
+	keepBackup = false
+[push]
+	autoSetupRemote = true
