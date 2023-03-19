@@ -1,4 +1,7 @@
 mutt/temp/
+dotconfig//nvim/lazy-lock.json
+dotconfig/qtile/__pycache__/
+dotconfig/qtile/wallpaper
 dotconfig/nvim/plugin
 dotconfig/Yubico
 tags
