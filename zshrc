@@ -39,7 +39,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
 alias themes=alacritty-themes
-alias ls=exa
 alias more=less
 alias weather="curl wttr.in/80108"
 alias ssh="TERM=screen-256color ssh"
@@ -80,8 +79,6 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 fi
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
-
-eval `dircolors ~/.dircolors`
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
