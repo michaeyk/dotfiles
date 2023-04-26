@@ -14,10 +14,10 @@ return {
   'jnurmine/Zenburn',
   'junegunn/seoul256.vim',
   'rebelot/kanagawa.nvim',
+
   'tpope/vim-unimpaired',
   'tpope/vim-rhubarb',
   'lambdalisue/suda.vim',
-  'christoomey/vim-tmux-navigator',
   'machakann/vim-sandwich',
   'ludovicchabant/vim-gutentags', -- Automatic tags management
   'jamessan/vim-gnupg',
@@ -31,6 +31,17 @@ return {
       -- echo &channel to get job-id of terminal
       vim.g.slime_target = "neovim"
     end
+  },
+  {
+    'numToStr/Navigator.nvim',
+    lazy = false,
+    keys = {
+      { "<c-h>", "<CMD>:NavigatorLeft<CR>" },
+      { "<c-j>", "<CMD>:NavigatorDown<CR>" },
+      { "<c-k>", "<CMD>:NavigatorUp<CR>" },
+      { "<c-l>", "<CMD>:NavigatorRight<CR>" },
+    },
+    config = true,
   },
   {
     'glacambre/firenvim',
