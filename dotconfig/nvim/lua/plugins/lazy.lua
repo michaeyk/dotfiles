@@ -25,13 +25,13 @@ return {
   'jkramer/vim-checkbox', -- <leader> tt to toggle
   'vim-pandoc/vim-pandoc',
   'ThePrimeagen/git-worktree.nvim',
-  {
-    'jpalardy/vim-slime',
-    config = function()
-      -- echo &channel to get job-id of terminal
-      vim.g.slime_target = "neovim"
-    end
-  },
+  -- {
+  --   'jpalardy/vim-slime',
+  --   config = function()
+  --     -- echo &channel to get job-id of terminal
+  --     vim.g.slime_target = "neovim"
+  --   end
+  -- },
   {
     'stevearc/oil.nvim',
     keys = {
@@ -75,6 +75,16 @@ return {
   {
     'numToStr/Comment.nvim',
     config = true,
+  },
+  {
+    "AckslD/nvim-neoclip.lua",
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require('neoclip').setup()
+      require('telescope').load_extension('neoclip')
+    end
   },
   {
     "nvim-lualine/lualine.nvim",

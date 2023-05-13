@@ -7,7 +7,7 @@ return {
   },
   opts = {
     size = 20,
-    open_mapping = [[<c-u>]],
+    open_mapping = [[<c-\>]],
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]]),
     hide_numbers = true,
     shade_filetypes = {},
