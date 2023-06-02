@@ -38,14 +38,13 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
-alias themes=alacritty-themes
 alias more=less
 alias weather="curl wttr.in/80108"
-alias ssh="TERM=screen-256color ssh"
 alias nnn='nnn -ea'
 alias gcob='git branch | fzf | xargs git checkout'
 alias lg=lazygit
 alias cheat=cht.sh
+alias ssh='TERM=tmux ssh'
 # oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
 #alias gc=gcalcli
 
@@ -61,9 +60,10 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
-export BROWSER=brave
+export BROWSER=firefox
 export GPGKEY=6271B2D8
 export GPG_TTY=`tty`
+# export TERM=tmux
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
@@ -84,6 +84,9 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # pywal
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 source $ZSH/oh-my-zsh.sh
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

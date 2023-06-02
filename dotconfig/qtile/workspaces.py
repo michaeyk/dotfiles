@@ -14,7 +14,7 @@ workspaces = [
         "name": " ₂",
         "key": "2",
         "matches": [
-            Match(wm_class='alacritty'),
+            Match(wm_class='wezterm'),
             # Match(wm_class='ranger'),
         ],
         "layout": "monadtall",

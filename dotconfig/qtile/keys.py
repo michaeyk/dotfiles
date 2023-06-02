@@ -2,7 +2,7 @@ from libqtile.config import Key
 from libqtile.command import lazy
 
 mod = "mod4"  # "Windows" key
-terminal = "wezterm"
+terminal = "kitty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found

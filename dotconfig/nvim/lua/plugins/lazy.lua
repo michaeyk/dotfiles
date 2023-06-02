@@ -80,9 +80,12 @@ return {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
       'nvim-telescope/telescope.nvim',
+      { 'kkharji/sqlite.lua', module = 'sqllite' }
     },
     config = function()
-      require('neoclip').setup()
+      require('neoclip').setup({
+        enable_persistent_history = true,
+      })
       require('telescope').load_extension('neoclip')
     end
   },
@@ -114,6 +117,8 @@ return {
       panel = { enabled = false },
       filetypes = {
         python = true,
+        javascript = true,
+        typescript = true,
         ["*"] = false,
       },
     },

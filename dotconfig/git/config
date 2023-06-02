@@ -6,6 +6,7 @@
 	pager = delta
 	editor = nvim
 	excludesfile = /home/mike/.config/git/gitignore_global
+	fscache = false
 [credential]
 	helper = cache
 [commit]
