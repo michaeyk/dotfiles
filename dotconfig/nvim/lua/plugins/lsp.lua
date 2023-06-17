@@ -1,6 +1,6 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  branch = "v1.x",
+  branch = "v2.x",
   dependencies = {
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
@@ -17,15 +17,9 @@ return {
     { "lukas-reineke/lsp-format.nvim", config = true },
   },
   config = function()
-    local lsp = require("lsp-zero")
-    lsp.preset("recommended")
+    local lsp = require("lsp-zero").preset({})
     local cmp = require("cmp")
     local luasnip = require("luasnip")
-
-    local check_backspace = function()
-      local col = vim.fn.col "." - 1
-      return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-    end
 
     local cmp_sources = lsp.defaults.cmp_sources()
     table.insert(cmp_sources, { name = 'emoji' })
@@ -57,8 +51,6 @@ return {
             luasnip.expand()
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-            elseif check_backspace() then
-              fallback()
           else
             fallback()
           end
@@ -82,10 +74,21 @@ return {
     })
 
     lsp.on_attach(function(client, bufnr)
-      require("lsp-format").on_attach(client, bufnr)
+      lsp.default_keymaps({ buffer = bufnr })
     end)
-    lsp.nvim_workspace()
+
+    lsp.skip_server_setup({ 'rust_analyzer' })
+
     lsp.setup()
-    vim.diagnostic.config { virtual_text = true }
-  end,
+
+    local rust_tools = require('rust-tools')
+
+    rust_tools.setup({
+      server = {
+        on_attach = function()
+          -- vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+        end
+      }
+    })
+  end
 }

@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -14,6 +14,7 @@ return {
   'jnurmine/Zenburn',
   'junegunn/seoul256.vim',
   'rebelot/kanagawa.nvim',
+  'Mofiqul/dracula.nvim',
 
   'tpope/vim-unimpaired',
   'tpope/vim-rhubarb',
@@ -25,6 +26,7 @@ return {
   'jkramer/vim-checkbox', -- <leader> tt to toggle
   'vim-pandoc/vim-pandoc',
   'ThePrimeagen/git-worktree.nvim',
+  'simrat39/rust-tools.nvim',
   -- {
   --   'jpalardy/vim-slime',
   --   config = function()
