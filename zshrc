@@ -67,7 +67,7 @@ export GPG_TTY=`tty`
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:\
 /opt/java/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:\
-$HOME/.gem/ruby/2.7.0/bin:$PATH"
+$HOME/.cargo/bin:$PATH"
 
 if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
     source /usr/share/nnn/quitcd/quitcd.bash_zsh
