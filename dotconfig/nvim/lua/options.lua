@@ -3,7 +3,7 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.relativenumber = true
 -- Write on buffer change
-vim.o.autowriteall = true
+vim.o.autowriteall = false
 
 -- cmp option
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
