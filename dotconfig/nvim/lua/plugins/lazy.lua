@@ -27,6 +27,7 @@ return {
   'vim-pandoc/vim-pandoc',
   'ThePrimeagen/git-worktree.nvim',
   'simrat39/rust-tools.nvim',
+  'sitiom/nvim-numbertoggle',
   -- {
   --   'jpalardy/vim-slime',
   --   config = function()
@@ -125,4 +126,10 @@ return {
       },
     },
   },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
 }

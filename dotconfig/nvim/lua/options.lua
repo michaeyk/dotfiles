@@ -1,7 +1,7 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 -- Make line numbers default
-vim.wo.relativenumber = true
+vim.wo.number = true
 -- Write on buffer change
 vim.o.autowriteall = false
 
