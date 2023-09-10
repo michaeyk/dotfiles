@@ -59,7 +59,7 @@ command! -nargs=1 WriteEncrypted w !gpg -c -o <q-args>
 ]]
 
 -- python
-vim.g.python3_host_prog = '~/dev/neovim/bin/python'
+vim.g.python3_host_prog = '~/dev/neovim/bin/python3'
 
 --Map blankline
 vim.g.indent_blankline_char = '┊'

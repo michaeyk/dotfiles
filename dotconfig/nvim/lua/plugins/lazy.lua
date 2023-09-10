@@ -28,6 +28,13 @@ return {
   'ThePrimeagen/git-worktree.nvim',
   'simrat39/rust-tools.nvim',
   'sitiom/nvim-numbertoggle',
+  {
+    'GCBallesteros/jupytext.vim',
+    config = function()
+      vim.g.jupytext_fmt = 'py'
+      vim.g.jupytext_style = 'hydrogen'
+    end
+  },
   -- {
   --   'jpalardy/vim-slime',
   --   config = function()
@@ -61,19 +68,13 @@ return {
     dependencies = "kyazdani42/nvim-web-devicons",
   },
   {
-    'numToStr/Navigator.nvim',
-    lazy = false,
-    keys = {
-      { "<c-h>", "<CMD>:NavigatorLeft<CR>" },
-      { "<c-j>", "<CMD>:NavigatorDown<CR>" },
-      { "<c-k>", "<CMD>:NavigatorUp<CR>" },
-      { "<c-l>", "<CMD>:NavigatorRight<CR>" },
-    },
-    config = true,
-  },
-  {
     'glacambre/firenvim',
-    build = function() vim.fn['firenvim#install'](0) end,
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    lazy = not vim.g.started_by_firenvim,
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end
   },
   {
     'numToStr/Comment.nvim',
