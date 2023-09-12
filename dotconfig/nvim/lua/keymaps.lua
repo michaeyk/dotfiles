@@ -24,6 +24,12 @@ vim.api.nvim_set_keymap('n', '<Leader>sl', ':botright vnew<CR>', { noremap = fal
 vim.api.nvim_set_keymap('n', '<Leader>sk', ':topleft new<CR>', { noremap = false })
 vim.api.nvim_set_keymap('n', '<Leader>sj', ':botright new<CR>', { noremap = false })
 
+-- Easier split navigations
+vim.api.nvim_set_keymap('n', '<c-h>', '<c-w><c-h>', { noremap = false })
+vim.api.nvim_set_keymap('n', '<c-j>', '<c-w><c-j>', { noremap = false })
+vim.api.nvim_set_keymap('n', '<c-k>', '<c-w><c-k>', { noremap = false })
+vim.api.nvim_set_keymap('n', '<c-l>', '<c-w><c-l>', { noremap = false })
+
 -- Resize with arrows
 vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', { noremap = true, silent = true })
@@ -60,4 +66,4 @@ vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', { noremap = true })
 
 -- Open vimrc in split
 vim.api.nvim_set_keymap('n', '<Leader>ev', ':e $MYVIMRC<CR> :cd $HOME/.config/nvim<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>sv', ':source $MYVIMRC<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>sv', ':source $MYVIMRC<CR>', { noremap = true })

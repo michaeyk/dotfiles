@@ -24,6 +24,7 @@ return {
     local cmp_sources = lsp.defaults.cmp_sources()
     table.insert(cmp_sources, { name = 'emoji' })
     table.insert(cmp_sources, { name = 'copilot' })
+    table.insert(cmp_sources, { name = 'neorg' })
 
     lsp.setup_nvim_cmp({
       sources = cmp_sources,

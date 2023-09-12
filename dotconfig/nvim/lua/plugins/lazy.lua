@@ -81,6 +81,12 @@ return {
     config = true,
   },
   {
+    "andrewferrier/wrapping.nvim",
+    config = function()
+      require("wrapping").setup()
+    end
+  },
+  {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
       'nvim-telescope/telescope.nvim',
