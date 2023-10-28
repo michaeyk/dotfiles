@@ -45,6 +45,7 @@ alias gcob='git branch | fzf | xargs git checkout'
 alias lg=lazygit
 alias cheat=cht.sh
 alias ssh='TERM=tmux ssh'
+alias z=zellij
 # oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
 #alias gc=gcalcli
 
@@ -52,7 +53,7 @@ alias ssh='TERM=tmux ssh'
 export LC_ALL=en_US.UTF-8 
 export LANG="$LC_ALL" 
 
-export MAILCONF=/home/mike/.config/mutt
+# export MAILCONF=/home/mike/.config/mutt
 export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgview;c:mp3conv'
 export NNN_COLORS="2136"
 export NNN_BMS="d:~/Downloads;w:~/Pictures"

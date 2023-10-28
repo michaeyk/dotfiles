@@ -10,6 +10,12 @@ local M = {
   },
   build = ":Neorg sync-parsers",
   cmd = "Neorg",
+  keys = {
+    { "<leader>m", "<cmd>Neorg toggle-concealer<cr>", mode = { "n" } },
+    { "<leader>i", "<cmd>Neorg workspace notes<cr>", mode = { "n" } },
+    { "<leader>j", "<cmd>Neorg journal today<cr>", mode = { "n" } },
+    { "<leader>J", "<cmd>Neorg journal yesterday<cr>", mode = { "n" } },
+  },
 }
 local plugins = {
   ["core.defaults"] = {},
@@ -21,7 +27,8 @@ local plugins = {
       default_workspace = "notes",
     }
   },
-  ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Neorg]" } },
+  -- ["core.tempus"] = {}, -- need nvim 10.0 or greater
+  ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
   ["core.concealer"] = { config = { icon_preset = "diamond" } },
   ["core.summary"] = {},
   ["core.export"] = {},
@@ -33,6 +40,12 @@ local plugins = {
     },
   },
 }
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "set conceallevel=3"
+})
+
 M.opts = {
   load = plugins,
 }

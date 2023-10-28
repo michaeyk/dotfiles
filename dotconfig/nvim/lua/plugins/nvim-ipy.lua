@@ -4,7 +4,7 @@ return {
   keys = {
     { "<leader>rc", "<Plug>(IPy-RunCell)", mode = { "n" } },
     { "<leader>ra", "<Plug>(IPy-RunAll)", mode = { "n" } },
-    { "<leader>nc", "i# %%<CR>", mode = { "n" } },
+    { "<leader>nc", "i# %%<ESC>", mode = { "n" } },
     { "<leader>jk", ":IPython --existing --no-window<CR>", mode = { "n" } },
   },
   config = function()

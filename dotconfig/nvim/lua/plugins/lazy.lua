@@ -1,20 +1,29 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    'rebelot/kanagawa.nvim',
+    -- 'joshdick/onedark.vim',
+    -- 'Mofiqul/vscode.nvim',
+    -- 'projekt0n/caret.nvim',
+    -- 'sainnhe/gruvbox-material',
+    -- "folke/tokyonight.nvim",
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme kanagawa]])
     end,
   },
 
   -- Colorschemes
+  'folke/tokyonight.nvim',
   'joshdick/onedark.vim',
   'jnurmine/Zenburn',
   'junegunn/seoul256.vim',
   'rebelot/kanagawa.nvim',
   'Mofiqul/dracula.nvim',
+  'Mofiqul/vscode.nvim',
+  'projekt0n/caret.nvim',
+  'sainnhe/gruvbox-material',
 
   'tpope/vim-unimpaired',
   'tpope/vim-rhubarb',
@@ -35,13 +44,12 @@ return {
       vim.g.jupytext_style = 'hydrogen'
     end
   },
-  -- {
-  --   'jpalardy/vim-slime',
-  --   config = function()
-  --     -- echo &channel to get job-id of terminal
-  --     vim.g.slime_target = "neovim"
-  --   end
-  -- },
+  {
+    "iamcco/markdown-preview.nvim",
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
   {
     'stevearc/oil.nvim',
     keys = {
@@ -65,7 +73,7 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
   },
   {
     'glacambre/firenvim',
@@ -82,9 +90,22 @@ return {
   },
   {
     "andrewferrier/wrapping.nvim",
+    opts = {
+      auto_set_mode_filetype_allowlist = {
+        "asciidoc",
+        "gitcommit",
+        "latex",
+        "mail",
+        "markdown",
+        "rst",
+        "tex",
+        "text",
+        "neorg",
+      },
+    },
     config = function()
       require("wrapping").setup()
-    end
+    end,
   },
   {
     "AckslD/nvim-neoclip.lua",
@@ -101,7 +122,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = true,
   },
   {

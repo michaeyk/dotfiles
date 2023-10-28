@@ -3,7 +3,7 @@ return {
   cmd = "ChatGPT",
   keys = {
     { "<leader>c", "<cmd>ChatGPT<cr>", desc = "ChatGPT", mode = "n" },
-    { "<leader>cc", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT", mode = "n" },
+    { "<leader>ci", "<cmd>ChatGPTEditWithInstructions<cr>", desc = "ChatGPT", mode = "n" },
     { "<leader>aa", "<cmd>ChatGPTActAs<cr>", desc = "ChatGPT", mode = "n" },
   },
   dependencies = {

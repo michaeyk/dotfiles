@@ -3,7 +3,7 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 -- Write on buffer change
-vim.o.autowriteall = false
+vim.o.autowriteall = true
 
 -- cmp option
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -43,7 +43,7 @@ vim.g.lightline = {
 }
 
 -- Set spelling
-vim.cmd [[ autocmd FileType latex,tex,text,mail,markdown setlocal spell ]]
+vim.cmd [[ autocmd FileType latex,tex,text,mail,markdown,norg setlocal spell ]]
 
 -- Highlight on yank
 vim.cmd [[
