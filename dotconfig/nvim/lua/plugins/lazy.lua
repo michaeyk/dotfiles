@@ -1,16 +1,16 @@
 return {
   {
-    'rebelot/kanagawa.nvim',
+    -- 'rebelot/kanagawa.nvim',
     -- 'joshdick/onedark.vim',
     -- 'Mofiqul/vscode.nvim',
     -- 'projekt0n/caret.nvim',
-    -- 'sainnhe/gruvbox-material',
-    -- "folke/tokyonight.nvim",
+    -- "ellisonleao/gruvbox.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme kanagawa]])
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
 
@@ -26,6 +26,7 @@ return {
   'sainnhe/gruvbox-material',
 
   'tpope/vim-unimpaired',
+  'tpope/vim-repeat',
   'tpope/vim-rhubarb',
   'lambdalisue/suda.vim',
   'machakann/vim-sandwich',
@@ -100,7 +101,7 @@ return {
         "rst",
         "tex",
         "text",
-        "neorg",
+        "norg",
       },
     },
     config = function()

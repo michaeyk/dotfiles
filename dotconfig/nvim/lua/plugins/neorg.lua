@@ -29,7 +29,7 @@ local plugins = {
   },
   -- ["core.tempus"] = {}, -- need nvim 10.0 or greater
   ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
-  ["core.concealer"] = { config = { icon_preset = "diamond" } },
+  ["core.concealer"] = { config = { icon_preset = "varied" } },
   ["core.summary"] = {},
   ["core.export"] = {},
   ["core.keybinds"] = {

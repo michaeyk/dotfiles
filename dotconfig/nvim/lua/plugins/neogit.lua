@@ -1,7 +1,7 @@
 return {
   "NeogitOrg/neogit",
   keys = {
-    { "<leader>g", "<cmd>Neogit --kind=split<CR>", desc = "neogit", mode = "n" },
+    { "<leader>ng", "<cmd>Neogit --kind=split<CR>", desc = "neogit", mode = "n" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",         -- required

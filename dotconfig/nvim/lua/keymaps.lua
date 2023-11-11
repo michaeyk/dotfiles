@@ -55,8 +55,8 @@ vim.api.nvim_set_keymap('n', '<C-b>', ':bprevious<CR>', { noremap = true, silent
 vim.api.nvim_set_keymap('x', 'J', ":m '>+1<CR>gv-gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'K', ":m '<-2<CR>gv-gv", { noremap = true, silent = true })
 
--- ,cd to change working directory to current file directory
-vim.api.nvim_set_keymap('n', '<Leader>cd', ':cd %:p:h<CR>', { noremap = true, silent = true })
+-- . to change working directory to current file directory
+vim.api.nvim_set_keymap('n', '<Leader>.', ':cd %:p:h<CR>', { noremap = true, silent = true })
 
 -- Toggle spell checking with '<Leader>s'
 vim.api.nvim_set_keymap('n', '<Leader>s', ':set spell!<CR>', { noremap = true, silent = true })
