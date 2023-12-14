@@ -12,9 +12,11 @@ local M = {
   cmd = "Neorg",
   keys = {
     { "<leader>m", "<cmd>Neorg toggle-concealer<cr>", mode = { "n" } },
-    { "<leader>i", "<cmd>Neorg workspace notes<cr>", mode = { "n" } },
+    { "<leader>n", "<cmd>Neorg workspace notes<cr>", mode = { "n" } },
     { "<leader>j", "<cmd>Neorg journal today<cr>", mode = { "n" } },
     { "<leader>J", "<cmd>Neorg journal yesterday<cr>", mode = { "n" } },
+    { "<leader>M", "<cmd>Neorg inject-metadata<cr>", mode = { "n" } },
+    { "<leader>toc", "<cmd>Neorg generate-workspace-summary<cr>", mode = { "n" } },
   },
 }
 local plugins = {

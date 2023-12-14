@@ -39,11 +39,14 @@ return {
   'simrat39/rust-tools.nvim',
   'sitiom/nvim-numbertoggle',
   {
-    'GCBallesteros/jupytext.vim',
+    "GCBallesteros/jupytext.nvim",
     config = function()
-      vim.g.jupytext_fmt = 'py'
-      vim.g.jupytext_style = 'hydrogen'
-    end
+      require('neoclip').setup({
+        style = "percent",
+      })
+      -- Depending on your nvim distro or config you may need to make the loading not lazy
+      -- lazy=false,
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
