@@ -5,12 +5,14 @@ return {
     -- 'Mofiqul/vscode.nvim',
     -- 'projekt0n/caret.nvim',
     -- "ellisonleao/gruvbox.nvim",
-    "folke/tokyonight.nvim",
+    -- "folke/tokyonight.nvim",
+    -- 'sainnhe/gruvbox-material',
+    "catppuccin/nvim",
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme catppuccin]])
     end,
   },
 
@@ -24,6 +26,7 @@ return {
   'Mofiqul/vscode.nvim',
   'projekt0n/caret.nvim',
   'sainnhe/gruvbox-material',
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   'tpope/vim-unimpaired',
   'tpope/vim-repeat',
@@ -38,6 +41,17 @@ return {
   'ThePrimeagen/git-worktree.nvim',
   'simrat39/rust-tools.nvim',
   'sitiom/nvim-numbertoggle',
+  {
+    "vhyrro/luarocks.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-neotest/nvim-nio",
+      "nvim-neorg/lua-utils.nvim",
+      "nvim-lua/plenary.nvim"
+    },
+    priority = 1000, -- We'd like this plugin to load first out of the rest
+    config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+  },
   {
     "GCBallesteros/jupytext.nvim",
     config = function()
@@ -78,6 +92,14 @@ return {
     },
     -- Optional dependencies
     dependencies = "nvim-tree/nvim-web-devicons",
+  },
+  {
+    "luukvbaal/nnn.nvim",
+    keys = {
+      { "<leader>e", "<cmd>NnnPicker<cr>", mode = { "n" } },
+      { "<leader>E", "<cmd>NnnExplorer<cr>", mode = { "n" } },
+    },
+    config = function() require("nnn").setup() end
   },
   {
     'glacambre/firenvim',

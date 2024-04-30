@@ -8,6 +8,7 @@ local M = {
     "nvim-cmp",
     "nvim-lua/plenary.nvim",
   },
+  version = "v7.0.0",
   build = ":Neorg sync-parsers",
   cmd = "Neorg",
   keys = {

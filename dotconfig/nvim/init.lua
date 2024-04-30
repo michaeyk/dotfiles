@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.maplocalleader = " " -- make sure to set `mapleader` before lazy so your mappings are correct
 require('lazy').setup({{import = 'plugins'}, {import = "plugins.lsp"}})
 require 'keymaps'
 require 'options'

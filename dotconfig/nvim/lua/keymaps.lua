@@ -49,6 +49,9 @@ vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = t
 -- Previous buffer
 vim.api.nvim_set_keymap('n', '<C-b>', ':bprevious<CR>', { noremap = true, silent = true })
 
+-- Delete buffer
+vim.api.nvim_set_keymap('n', '<Leader>c', ':bd<CR>', { noremap = true, silent = true })
+
 -- Move blocks of code
 -- vim.api.nvim_set_keymap('x', '<S-j>', ":m '>+1<CR>gv-gv", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('x', '<S-k>', ":m '<-2<CR>gv-gv", { noremap = true, silent = true })
