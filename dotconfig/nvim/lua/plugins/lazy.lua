@@ -37,7 +37,6 @@ return {
   'jamessan/vim-gnupg',
   'moll/vim-bbye',
   'jkramer/vim-checkbox', -- <leader> tt to toggle
-  'vim-pandoc/vim-pandoc',
   'ThePrimeagen/git-worktree.nvim',
   'simrat39/rust-tools.nvim',
   'sitiom/nvim-numbertoggle',
@@ -67,6 +66,10 @@ return {
     config = function()
       vim.fn["mkdp#util#install"]()
     end,
+  },
+  {
+    'preservim/vim-markdown',
+    dependencies = "godlygeek/tabular",
   },
   {
     'stevearc/oil.nvim',
@@ -151,13 +154,34 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     config = true,
   },
+  -- {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   build = ':TSUpdate',
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter-textobjects',
+  --     'p00f/nvim-ts-rainbow',
+  --   },
+  -- },
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ':TSUpdate',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'p00f/nvim-ts-rainbow',
     },
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighing = { "typst" },
+        },
+        indent = {
+          enable = true,
+        },
+      })
+    end,
   },
   {
     "ray-x/lsp_signature.nvim",

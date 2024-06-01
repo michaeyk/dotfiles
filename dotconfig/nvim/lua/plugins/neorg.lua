@@ -1,15 +1,9 @@
--- lazy.nvim spec
-local M = {
+return {
   "nvim-neorg/neorg",
   ft = "norg",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-cmp",
-    "nvim-lua/plenary.nvim",
-  },
-  version = "v7.0.0",
-  build = ":Neorg sync-parsers",
+  dependencies = { "luarocks.nvim", "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
+  lazy = false,
+  version = "*",
   cmd = "Neorg",
   keys = {
     { "<leader>mm", "<cmd>Neorg toggle-concealer<cr>", mode = { "n" } },
@@ -18,38 +12,51 @@ local M = {
     { "<leader>J", "<cmd>Neorg journal yesterday<cr>", mode = { "n" } },
     { "<leader>M", "<cmd>Neorg inject-metadata<cr>", mode = { "n" } },
     { "<leader>toc", "<cmd>Neorg generate-workspace-summary<cr>", mode = { "n" } },
+    { "<leader>fl", "<cmd>Telescope neorg find_linkable<cr>", mode = { "n" } },
+    { "<leader>fn", "<cmd>Telescope neorg find_norg_files<cr>", mode = { "n" } },
+    { "<C-f>", "<cmd>Telescope neorg insert_file_link<cr>", mode = { "i" } },
+    { "<C-l>", "<cmd>Telescope neorg insert_link<cr>", mode = { "i" } },
   },
-}
-local plugins = {
-  ["core.defaults"] = {},
-  ["core.dirman"] = {
-    config = {
-      workspaces = {
-        notes = "~/documents/notes",
-      },
-      default_workspace = "notes",
-    }
-  },
-  -- ["core.tempus"] = {}, -- need nvim 10.0 or greater
-  ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
-  ["core.concealer"] = { config = { icon_preset = "varied" } },
-  ["core.summary"] = {},
-  ["core.export"] = {},
-  ["core.keybinds"] = {
-    -- https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
-    config = {
-      default_keybinds = true,
-      neorg_leader = "<Leader>",
-    },
-  },
+  config = function()
+    require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/documents/notes",
+              },
+              default_workspace = "notes",
+            }
+          },
+          -- ["core.tempus"] = {}, -- need nvim 10.0 or greater
+          ["core.completion"] = { config = { engine = "nvim-cmp", name = "[Norg]" } },
+          ["core.integrations.telescope"] = {
+            config = {
+              insert_file_link = {
+                show_title_preview = true,
+              },
+            }
+          },
+          ["core.integrations.treesitter"] = {},
+          ["core.concealer"] = {
+            config = {
+              folds = false,
+              icon_preset = "diamond",
+            }
+          },
+          ["core.summary"] = {},
+          ["core.export"] = {},
+          ["core.keybinds"] = {
+            -- https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
+            config = {
+              default_keybinds = true,
+              neorg_leader = "<Leader>",
+            },
+          },
+        },
+      }
+    vim.opt.conceallevel = 2
+  end,
 }
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.norg"},
-  command = "set conceallevel=3"
-})
-
-M.opts = {
-  load = plugins,
-}
-return M
