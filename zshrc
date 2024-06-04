@@ -45,7 +45,10 @@ alias gcob='git branch | fzf | xargs git checkout'
 alias lg=lazygit
 alias cheat=cht.sh
 alias ssh='TERM=tmux ssh'
-alias z=zellij
+alias sxiv=nsxiv
+alias z=zathura
+alias hg='history | grep '
+
 # oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
 #alias gc=gcalcli
 
@@ -96,6 +99,16 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # pywal
 # (cat ~/.cache/wal/sequences &)
+
+eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
+alias ls='eza $eza_params'
+alias l='eza --git-ignore $eza_params'
+alias ll='eza --all --header --long $eza_params'
+alias llm='eza --all --header --long --sort=modified $eza_params'
+alias la='eza -lbhHigUmuSa'
+alias lx='eza -lbhHigUmuSa@'
+alias lt='eza --tree $eza_params'
+alias tree='eza --tree $eza_params'
 
 source $ZSH/oh-my-zsh.sh
 export PYENV_ROOT="$HOME/.pyenv"
