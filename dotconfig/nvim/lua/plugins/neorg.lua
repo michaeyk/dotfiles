@@ -34,7 +34,7 @@ return {
           ["core.integrations.telescope"] = {
             config = {
               insert_file_link = {
-                show_title_preview = true,
+                show_title_preview = false,
               },
             }
           },

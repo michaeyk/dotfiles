@@ -1,6 +1,6 @@
 return {
   'mrjones2014/smart-splits.nvim',
-  build = './kitty/install-kittens.bash',
+  -- build = './kitty/install-kittens.bash',
   keys = {
     -- resizing splits
     -- these keymaps will also accept a range,

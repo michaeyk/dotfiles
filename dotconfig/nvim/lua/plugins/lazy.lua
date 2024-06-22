@@ -28,36 +28,62 @@ return {
   'sainnhe/gruvbox-material',
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-  'tpope/vim-unimpaired',
-  'tpope/vim-repeat',
-  'tpope/vim-rhubarb',
+  -- mini.nvim
+  {
+    "echasnovski/mini.nvim",
+    config = function()
+      require("mini.ai").setup()
+      require("mini.cursorword").setup()
+      require("mini.comment").setup()
+      require("mini.pairs").setup()
+      require("mini.surround").setup()
+      require("mini.tabline").setup()
+      require("mini.jump").setup()
+      require("mini.jump2d").setup({
+        mappings = {
+          start_jumping = 'S',
+        },
+      })
+      require("mini.bracketed").setup()
+      require("mini.files").setup()
+      -- require("mini.pick").setup()
+      -- require("mini.extra").setup()
+
+      vim.keymap.set("n", "-", function()
+        local bufname = vim.api.nvim_buf_get_name(0)
+        local _ = require("mini.files").close()
+        or require("mini.files").open(bufname, false)
+      end,
+        { desc = "File explorer" }
+      )
+    end
+  },
+
   'lambdalisue/suda.vim',
-  'machakann/vim-sandwich',
-  'ludovicchabant/vim-gutentags', -- Automatic tags management
   'jamessan/vim-gnupg',
   'moll/vim-bbye',
   'jkramer/vim-checkbox', -- <leader> tt to toggle
-  'ThePrimeagen/git-worktree.nvim',
+  'theprimeagen/git-worktree.nvim',
   'simrat39/rust-tools.nvim',
   'sitiom/nvim-numbertoggle',
   {
     "vhyrro/luarocks.nvim",
     dependencies = {
-      "MunifTanjim/nui.nvim",
+      "muniftanjim/nui.nvim",
       "nvim-neotest/nvim-nio",
       "nvim-neorg/lua-utils.nvim",
       "nvim-lua/plenary.nvim"
     },
-    priority = 1000, -- We'd like this plugin to load first out of the rest
-    config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+    priority = 1000, -- we'd like this plugin to load first out of the rest
+    config = true, -- this automatically runs `require("luarocks-nvim").setup()`
   },
   {
-    "GCBallesteros/jupytext.nvim",
+    "gcballesteros/jupytext.nvim",
     config = function()
       require('neoclip').setup({
         style = "percent",
       })
-      -- Depending on your nvim distro or config you may need to make the loading not lazy
+      -- depending on your nvim distro or config you may need to make the loading not lazy
       -- lazy=false,
     end,
   },
@@ -72,39 +98,6 @@ return {
     dependencies = "godlygeek/tabular",
   },
   {
-    'stevearc/oil.nvim',
-    keys = {
-      { '-', ':Oil --float .<CR>' },
-    },
-    opts = {
-      keymaps = {
-        ["g?"] = "actions.show_help",
-        ["<CR>"] = "actions.select",
-        ["<C-v>"] = "actions.select_vsplit",
-        ["<C-x>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-p>"] = "actions.preview",
-        ["<C-c>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
-        ["-"] = "actions.parent",
-        ["_"] = "actions.open_cwd",
-        ["`"] = "actions.cd",
-        ["~"] = "actions.tcd",
-        ["."] = "actions.toggle_hidden",
-      },
-    },
-    -- Optional dependencies
-    dependencies = "nvim-tree/nvim-web-devicons",
-  },
-  {
-    "luukvbaal/nnn.nvim",
-    keys = {
-      { "<leader>e", "<cmd>NnnPicker<cr>", mode = { "n" } },
-      { "<leader>E", "<cmd>NnnExplorer<cr>", mode = { "n" } },
-    },
-    config = function() require("nnn").setup() end
-  },
-  {
     'glacambre/firenvim',
     -- Lazy load firenvim
     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
@@ -112,10 +105,6 @@ return {
     build = function()
       vim.fn["firenvim#install"](0)
     end
-  },
-  {
-    'numToStr/Comment.nvim',
-    config = true,
   },
   {
     "andrewferrier/wrapping.nvim",
@@ -154,14 +143,6 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     config = true,
   },
-  -- {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   build = ':TSUpdate',
-  --   dependencies = {
-  --     'nvim-treesitter/nvim-treesitter-textobjects',
-  --     'p00f/nvim-ts-rainbow',
-  --   },
-  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
