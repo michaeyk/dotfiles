@@ -78,6 +78,12 @@ return {
     config = true, -- this automatically runs `require("luarocks-nvim").setup()`
   },
   {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
+  {
     "gcballesteros/jupytext.nvim",
     config = function()
       require('neoclip').setup({
