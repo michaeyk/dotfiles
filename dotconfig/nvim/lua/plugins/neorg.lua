@@ -13,7 +13,6 @@ return {
     { "<leader>M", "<cmd>Neorg inject-metadata<cr>", mode = { "n" } },
     { "<leader>toc", "<cmd>Neorg generate-workspace-summary<cr>", mode = { "n" } },
     { "<leader>fl", "<cmd>Telescope neorg find_linkable<cr>", mode = { "n" } },
-    { "<leader>fn", "<cmd>Telescope neorg find_norg_files<cr>", mode = { "n" } },
     { "<C-f>", "<cmd>Telescope neorg insert_file_link<cr>", mode = { "i" } },
     { "<C-l>", "<cmd>Telescope neorg insert_link<cr>", mode = { "i" } },
   },
