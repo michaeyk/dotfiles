@@ -78,10 +78,49 @@ return {
     config = true, -- this automatically runs `require("luarocks-nvim").setup()`
   },
   {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "ibhagwan/fzf-lua",
+    },
+    keys = {
+      { "<leader>gg", ":Neogit<cr>", desc = "Neogit", mode = "n" },
+      { "<leader>gb", ":Neogit branch<cr>", desc = "Neogit", mode = "n" },
+      { "<leader>gd", ":DiffviewOpen<cr>", desc = "diffview", mode = "n" },
+      { "<leader>gD", ":DiffviewOpen master<cr>", desc = "diffview master", mode = "n" },
+      { "<leader>gl", ":Neogit log<cr>", desc = "Neogit log", mode = "n" },
+      { "<leader>gp", ":Neogit push<cr>", desc = "Neogit push", mode = "n" },
+    },
+    config = true
+  },
+  {
     "lewis6991/gitsigns.nvim",
     config = function()
       require('gitsigns').setup()
     end
+  },
+  {
+    "benlubas/molten-nvim",
+    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+    build = ":UpdateRemotePlugins",
+    init = function()
+      -- this is an example, not a default. Please see the readme for more configuration options
+      -- vim.g.molten_output_win_max_height = 12
+    end,
+  },
+  {
+    -- see the image.nvim readme for more information about configuring this plugin
+    "3rd/image.nvim",
+    opts = {
+      backend = "kitty", -- whatever backend you would like to use
+      max_width = 100,
+      max_height = 12,
+      max_height_window_percentage = math.huge,
+      max_width_window_percentage = math.huge,
+      window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
+      window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+    },
   },
   {
     "gcballesteros/jupytext.nvim",
@@ -173,20 +212,6 @@ return {
     config = {
       toggle_key = '<C-s>',
       select_signature_key = '<C-n>',
-    },
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    config = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      filetypes = {
-        python = true,
-        javascript = true,
-        typescript = true,
-        ["*"] = false,
-      },
     },
   },
   {

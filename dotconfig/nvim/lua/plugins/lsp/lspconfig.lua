@@ -12,6 +12,8 @@ return {
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+    require'lspconfig'.svelte.setup{}
+
     local keymap = vim.keymap -- for conciseness
 
     local opts = { noremap = true, silent = true }
@@ -77,7 +79,7 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
     })
@@ -90,12 +92,6 @@ return {
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure svelte server
-    lspconfig["svelte"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -122,6 +118,12 @@ return {
 
     -- configure python server
     lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure rust server
+    lspconfig["rust_analyzer"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

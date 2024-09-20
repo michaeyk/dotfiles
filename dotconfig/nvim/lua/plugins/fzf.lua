@@ -10,7 +10,7 @@
     { "<leader>fg",  function() require("fzf-lua").live_grep() end,       desc = "ripgrep" },
     { "<leader>#",   function() require("fzf-lua").grep_cword() end,      desc = "grep current word" },
     { "<leader>ff",  function() require("fzf-lua").files() end,           desc = "Find files" },
-    { "<leader>fr",  function() require("fzf-lua").oldfiles() end,        desc = "Find files" },
+    { "<leader>fr",  function() require("fzf-lua").oldfiles() end,        desc = "Find recent files" },
     { "<leader>fm",  function() require("fzf-lua").marks() end,           desc = "Search marks" },
     { "<leader>fy",  function() require("neoclip.fzf")() end,             desc = "Search clipboard" },
     { "<leader>fk",  function() require("fzf-lua").keymaps() end,         desc = "Search keymaps" },
@@ -21,8 +21,8 @@
     { "<leader>/gc", function() require("fzf-lua").git_commits() end,     desc = "Search git commits" },
     { "<leader>/gC", function() require("fzf-lua").git_bcommits() end,    desc = "Search git buffer commits" },
     { "<leader>//",  function() require("fzf-lua").resume() end,          desc = "Resume FZF" },
-    { "<leader>fN",  function() require("fzf-lua").live_grep({prompt='Neorg » ', cwd='~/notes'}) end, desc = "Search notes" },
-    { "<leader>fn",  function() require("fzf-lua").files({cwd='~/notes'}) end, desc = "Search notes files" },
+    { "<leader>fn",  function() require("fzf-lua").live_grep({prompt='Neorg » ', cwd='~/notes'}) end, desc = "Search notes" },
+    { "<leader>fN",  function() require("fzf-lua").files({cwd='~/notes'}) end, desc = "Search notes files" },
   },
   config = function()
     local fzf = require('fzf-lua')

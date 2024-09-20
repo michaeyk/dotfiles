@@ -50,7 +50,7 @@ vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<C-b>', ':bprevious<CR>', { noremap = true, silent = true })
 
 -- Delete buffer
-vim.api.nvim_set_keymap('n', '<Leader>c', ':bd<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>C', ':bd<CR>', { noremap = true, silent = true })
 
 -- . to change working directory to current file directory
 vim.api.nvim_set_keymap('n', '<Leader>.', ':cd %:p:h<CR>', { noremap = true, silent = true })
@@ -64,6 +64,3 @@ vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', { noremap = true })
 -- Open vimrc in split
 vim.api.nvim_set_keymap('n', '<Leader>ev', ':e $MYVIMRC<CR> :cd $HOME/.config/nvim<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<Leader>sv', ':source $MYVIMRC<CR>', { noremap = true })
-
--- Unwrap for email
-vim.api.nvim_set_keymap('n', '<Leader>u', ':%norm vipJ<CR>', { noremap = true })

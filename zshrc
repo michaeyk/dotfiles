@@ -17,19 +17,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode virtualenv zsh-syntax-highlighting fzf-tab zsh-autosuggestions)
-
-# fzf-tab 
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+plugins=(git vi-mode virtualenv zsh-syntax-highlighting zsh-autosuggestions)
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -38,7 +26,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 alias vi=/usr/bin/nvim
 alias vim=/usr/bin/nvim
-alias more=less
 alias weather="curl wttr.in/80108"
 alias nnn='nnn -ea'
 alias gcob='git branch | fzf | xargs git checkout'
@@ -46,21 +33,17 @@ alias lg=lazygit
 alias cheat=cht.sh
 alias ssh='TERM=tmux ssh'
 alias sxiv=nsxiv
-alias z=zathura
+alias cd=z
 alias hg='history | grep '
+alias cat=bat
 
-# oh-my-zsh runs over this alias, set in .oh-my-zsh/custom
-#alias gc=gcalcli
-
-#export LANG=ko_KR.EUC-KR
 export LC_ALL=en_US.UTF-8 
 export LANG="$LC_ALL" 
 
-# export MAILCONF=/home/mike/.config/mutt
-export NNN_PLUG='o:fzopen;p:mocplay;d:diffs;m:nmount;t:preview-tui;w:wall;i:imgview;c:mp3conv'
+export NNN_PLUG='o:fzopen;d:diffs;m:nmount;p:preview-tui;w:wall;i:imgview;c:mp3conv'
 export NNN_COLORS="2136"
 export NNN_BMS="d:~/Downloads;w:~/Pictures"
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_DEFAULT_COMMAND="fd --type f"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export XDG_CONFIG_HOME=/home/mike/.config
@@ -84,10 +67,6 @@ fd() {
   cd "$dir"
 }
 
-if [ -f /usr/share/fzf/key-bindings.zsh ]; then
-    source /usr/share/fzf/key-bindings.zsh
-fi
-
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
@@ -100,6 +79,9 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # pywal
 # (cat ~/.cache/wal/sequences &)
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
 alias ls='eza $eza_params'
 alias l='eza --git-ignore $eza_params'
@@ -111,6 +93,20 @@ alias lt='eza --tree $eza_params'
 alias tree='eza --tree $eza_params'
 
 source $ZSH/oh-my-zsh.sh
+
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+eval "$(zoxide init zsh)"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/mike/.oh-my-zsh/completions/_bun" ] && source "/home/mike/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
