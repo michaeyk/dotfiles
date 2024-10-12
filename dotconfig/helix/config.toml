@@ -1,0 +1,62 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = true
+scroll-lines = 1
+rulers = [80, 120]
+auto-format = true
+auto-save = true
+auto-pairs = true
+cursorline = true
+bufferline = "always"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "spinner", "diagnostics"]
+center = ["file-name", "separator", "version-control", "separator"]
+right = ["position", "position-percentage", "total-line-numbers"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.file-picker]
+hidden = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[keys.normal]
+"ret" = [
+  "move_line_down",
+  "goto_first_nonwhitespace",
+] # Maps the enter key to move to start of next line
+D = ["ensure_selections_forward", "extend_to_line_end"]
+C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/yazi-picker.sh"
+
+# Use system clipboard
+y = "yank_main_selection_to_clipboard"
+p = "paste_clipboard_before"
+
+[keys.normal.Z]
+"Z" = ":x"
+
+[keys.normal.space]
+w = ":write"
+
+[keys.insert]
+k = { j = "normal_mode" } # Maps `kj` to exit insert mode

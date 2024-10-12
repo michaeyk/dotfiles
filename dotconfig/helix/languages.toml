@@ -1,0 +1,35 @@
+[language-server.gpt]
+command = "helix-gpt"           # OR bun run path/to/helix-gpt.js`
+config = {}
+args = ["--handler", "copilot"]
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+# [[language]]
+# name = "python"
+# language-servers = ["pylsp", "ruff", "gpt"]
+# auto-format = true
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff", "gpt"]
+
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+except-features = ["format", "code-action"]
+
+[language-server.basedpyright.config.basedpyright.analysis]
+autoSearchPaths = true
+typeCheckingMode = "basic"
+diagnosticMode = "openFilesOnly"
+
+[language-server.ruff]
+command = "ruff"
+args = ["server", "--preview"]
+
+# Doesn't work
+m.")" = "@lf)hmi)"
+m."(" = "@lf)hmi)"
