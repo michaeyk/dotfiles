@@ -101,12 +101,27 @@ return {
     end
   },
   {
-    "benlubas/molten-nvim",
-    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
-    build = ":UpdateRemotePlugins",
-    init = function()
-      -- this is an example, not a default. Please see the readme for more configuration options
-      -- vim.g.molten_output_win_max_height = 12
+    'michaelb/sniprun',
+    build = 'sh ./install.sh',
+    keys = {
+      { "<leader>rr", ":SnipRun<cr>", desc = "SnipRun", mode = "n" },
+      { "<leader>rr", ":SnipRun<cr>", desc = "SnipRun", mode = "v" },
+      { "<leader>rr", ":SnipRun<cr>", desc = "SnipRun", mode = "x" },
+    },
+    config = function()
+      require('sniprun').setup({
+        selected_interpreters = { 'Python3_fifo' },
+        repl_enable = {'Python3_fifo'},
+        display = { "Terminal" },
+        display_options = {
+          terminal_scrollback = vim.o.scrollback, -- change terminal display scrollback lines
+          terminal_line_number = false, -- whether show line number in terminal window
+          terminal_signcolumn = false, -- whether show signcolumn in terminal window
+          terminal_position = "vertical", --# or "horizontal", to open as horizontal split instead of vertical split
+          terminal_width = 45,          --# change the terminal display option width (if vertical)
+          terminal_height = 20,         --# change the terminal display option height (if horizontal)
+        },
+      })
     end,
   },
   {
@@ -116,8 +131,8 @@ return {
       backend = "kitty", -- whatever backend you would like to use
       max_width = 100,
       max_height = 12,
-      max_height_window_percentage = math.huge,
-      max_width_window_percentage = math.huge,
+      max_height_window_percentage = 50,
+      max_width_window_percentage = nil,
       window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
     },

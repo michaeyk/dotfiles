@@ -25,7 +25,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # bindkey '^ ' autosuggest-accept 
 
 alias vi=/usr/bin/nvim
-alias vim=/usr/bin/nvim
+alias hx=helix
+alias vim='nix run $HOME/nix/neve/'
 alias weather="curl wttr.in/80108"
 alias nnn='nnn -ea'
 alias gcob='git branch | fzf | xargs git checkout'
@@ -44,8 +45,8 @@ export NNN_PLUG='o:fzopen;d:diffs;m:nmount;p:preview-tui;w:wall;i:imgview;c:mp3c
 export NNN_COLORS="2136"
 export NNN_BMS="d:~/Downloads;w:~/Pictures"
 export FZF_DEFAULT_COMMAND="fd --type f"
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
+export EDITOR=/usr/bin/helix
+export VISUAL=/usr/bin/helix
 export XDG_CONFIG_HOME=/home/mike/.config
 export BROWSER=firefox
 export GPGKEY=6271B2D8
@@ -65,6 +66,15 @@ fd() {
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 unset SSH_AGENT_PID
